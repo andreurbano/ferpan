@@ -12,7 +12,7 @@
     <script>
 
         function PreencheTipo(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/tiposdeprodutos", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/tiposdeprodutos", function(result){
                 var Opcoes = '';
                 $.each(result, function(i, field){
                     //
@@ -30,7 +30,7 @@
 
 
         function PreencheUnidMedida(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/unidadesdemedidas", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/unidadesdemedidas", function(result){
                 var Opcoes = '';
                 $.each(result, function(i, field){
                     //

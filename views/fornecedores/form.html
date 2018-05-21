@@ -12,7 +12,7 @@
         // Preenche o lookup com UF
         function PreencheUF(idComponente, valorAtual) {
             //
-            $.getJSON("http://" + window.location.host + "/ufs", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/ufs", function(result){
                         
                 var Opcoes = '';
                     $.each(result, function(i, field){
@@ -31,7 +31,7 @@
 
         // Preenche o lookup com Municipios
         function PreencheMunicipio(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/municipios", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/municipios", function(result){
 
                 var Opcoes = '';
                 $.each(result, function(i, field){
@@ -50,7 +50,7 @@
 
         // Preenche o lookup com Ramos de Atividades
         function PreencheRamodeAtividade(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/ramosdeatividades", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/ramosdeatividades", function(result){
 
                 var Opcoes = '';
                 $.each(result, function(i, field){
@@ -70,7 +70,7 @@
 
         // Preenche o lookup com Tipos de Fornecedores
         function PreencheTipoFornecedor(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/tiposdefornecedores", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/tiposdefornecedores", function(result){
 
                 var Opcoes = '';
                 $.each(result, function(i, field){

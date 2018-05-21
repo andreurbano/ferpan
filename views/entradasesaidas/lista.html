@@ -14,7 +14,7 @@
     <script>
         // Preenche o lookup com Produtos
         function PreencheProduto(idComponente, valorAtual) {
-            $.getJSON("http://" + window.location.host + "/produtos", function(result){
+            $.getJSON(window.location.protocol + "//" + window.location.host + "/produtos", function(result){
                 var Opcoes = '';
                 $.each(result, function(i, field){
                     //
