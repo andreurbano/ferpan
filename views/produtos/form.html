@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Produtos</title>
+    <!-- Inclui Bootstrap e Jquery -->
+    <% include ../partials/bs.html %>
+
+
+    <script>
+
+        function PreencheTipo(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/tiposdeprodutos", function(result){
+                var Opcoes = '';
+                $.each(result, function(i, field){
+                    //
+                    if(valorAtual == field.id ){
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + ' selected' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                });
+                $(idComponente).append(Opcoes);
+            });
+        }
+
+
+
+        function PreencheUnidMedida(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/unidadesdemedidas", function(result){
+                var Opcoes = '';
+                $.each(result, function(i, field){
+                    //
+                    if(valorAtual == field.id ){
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + ' selected' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                });
+                $(idComponente).append(Opcoes);
+            });
+        }
+
+        function myFunction(elementoHTML) {
+            var x = document.getElementById(elementoHTML).value;
+            alert("O produto selecionado foi: " + x);
+            //document.getElementById("demo").innerHTML = "You selected: " + x;
+        }
+
+        function OrdenaElementoSelect(elementoHTML) {
+            var lb = document.getElementById(elementoHTML);
+            arrTexts = new Array();
+
+            for(i=0; i<lb.length; i++)  {
+            arrTexts[i] = lb.options[i].text;
+            }
+
+            arrTexts.sort();
+
+            for(i=0; i<lb.length; i++)  {
+            lb.options[i].text = arrTexts[i];
+            lb.options[i].value = arrTexts[i];
+            }
+        }
+
+
+    </script>
+    
+
+
+
+</head>
+
+<body class="container">
+    <!-- Define a action -->
+    <%
+        let action='/produtos';
+        if(produto.id){
+            action='/produtos/' + produto.id + '?_method=PUT';
+        }
+    %>
+    <!-- Cabeçalho com Cadastros -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div class="text-center">
+            <h1>Produtos</h1>
+        </div>
+
+        <!-- Validação dos campos -->
+        <% include ../partials/erros-validacao.html %>
+        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+
+
+            <!-- Campos Id. e  Descrição -->
+            <div class="form-group container">
+                <!-- Campo Id. -->
+                <%if(produto.id){%>
+                    <input type="hidden" name="id" value="<%=produto.id%>">
+                <%}%>
+            <!-- Campo Descrição -->
+            <label for="inputdescricao" class="control-label">Descrição</label>
+                <div>
+                    <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=produto.descricao%>">
+                </div>
+            </div>
+
+            <!-- Lookup Tipo de Produto -->
+            <div class="form-group container">
+                <label class="control-label" for="id_tipoproduto">Tipo</label>
+                <div>
+                    <select class="form-control selectpicker show-tick" id="id_tipoproduto" name="id_tipoproduto" required></select>
+                </div>
+                <script>
+                    PreencheTipo('#id_tipoproduto', '<%=produto.id_tipoproduto%>');
+                    OrdenaElementoSelect('#id_tipoproduto');
+                </script>
+            </div>
+
+            <!-- Lookup Unid. Medida -->
+            <div class="form-group container">
+                    <label class="control-label" for="id_unidademedida">Unidade de Medida</label>
+                    <div>
+                        <select class="form-control selectpicker show-tick" id="id_unidademedida" name="id_unidademedida" required></select>
+                    </div>
+                    <script>
+                        PreencheUnidMedida('#id_unidademedida', '<%=produto.id_unidademedida%>');
+                        OrdenaElementoSelect('#id_unidademedida');
+                    </script>
+                </div>
+    
+
+            <!-- Campo Data do Saldo Inicial -->
+            <div class="form-group container">
+                <label for="inputsaldo_ini_dt" class="control-label">Data do Saldo Inicial</label>
+                <div>
+                    <input class="form-control" id="inputsaldo_ini_dt" type="date" value="<%=produto.saldo_ini_dt%>" name="saldo_ini_dt" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
+                </div>
+            </div>
+    
+            <!-- Campo Quantidade do Saldo Inicial -->
+            <div class="form-group container">
+                <label for="inputsaldo_ini_qtde" class="control-label">Quantidade do Saldo Inicial</label>
+                <div>
+                    <input type="number" step="0.01" id="inputsaldo_ini_qtde" class="form-control" name="saldo_ini_qtde" placeholder="0.00" autofocus value="<%=produto.saldo_ini_qtde%>" required>
+                </div>
+            </div>
+    
+            <!-- Campo Valor do Saldo Inicial -->
+            <div class="form-group container">
+                <label for="inputsaldo_ini_valor" class="control-label">Valor do Saldo Inicial</label>
+                <div>
+                    <input type="number" step="0.01" id="inputsaldo_ini_valor" class="form-control" name="saldo_ini_valor" placeholder="0.00" autofocus value="<%=produto.saldo_ini_valor%>" required>
+                </div>
+            </div>
+    
+
+            <!-- Campo Valor do Preço Médio Inicial -->
+            <div class="form-group container">
+                <label for="saldo_ini_preco_medio" class="control-label">Valor do Preço Médio Inicial</label>
+                <div>
+                    <input type="number" step="0.01" id="saldo_ini_preco_medio" class="form-control" name="saldo_ini_preco_medio" placeholder="0.00" autofocus value="<%=produto.saldo_ini_preco_medio%>" required>
+                </div>
+            </div>
+    
+
+
+            <!-- Botão Gravar(Submit) -->
+            <div class="form-group container">
+                <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+            </div>
+                    
+        </form>
+        <!-- Rodapé -->
+        <% include ../partials/rodape.html %>
+    
+    </div>   
+</body>
+
+</html>

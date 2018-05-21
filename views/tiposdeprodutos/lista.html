@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tipos de Produtos</title>
+    <!-- Náo tem na apostila. Include como se usa no PHP.
+    Serve para incluir titulos e rodapes -->
+    <% include ../partials/bs.html %>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+
+</head>
+<body class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div class="text-center">
+            <h2>Tipos de Produtos</h2>
+        </div>
+
+        <a href="/tiposdeprodutos/form" class="btn btn-xs btn-success botao_novo"><span class="glyphicon glyphicon-plus"></span></a>
+
+        <div class="table-responsive tabela">
+            <table class='table table-sm hover table-hover table-bordered table-striped'>    
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col" class="text-center">Ação</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% for(unidadedemedida of tiposdeprodutos) { %>
+                        <tr>
+                            <td><%= unidadedemedida.descricao %></td>
+
+                            <td class="text-center">
+                                <form method="POST" action="/tiposdeprodutos/<%=unidadedemedida.id%>?_method=DELETE">
+                                    <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <a href="/tiposdeprodutos/form/<%=unidadedemedida.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </form>
+                            </td>
+                        </tr>
+            
+                    <%}%>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+ <script src="/socket.io/socket.io.js"></script>  
+ 
+ <script>
+     const socket = io();
+     socket.on('novoUnidadeDeMedida', unidadedemedida => {
+         console.log(unidadedemedida.id);
+
+         const template = `
+            <tr>
+
+                <td>${unidadedemedida.descricao}</td>
+
+                <td>
+                    <form method="POST" action="/tiposdeprodutos/${unidadedemedida.id}?_method=DELETE">
+                        <button type="SUBMIT" class="btn btn-danger">Remover</button>
+                    </form>
+                    <a href="/tiposdeprodutos/form/${unidadedemedida.id}" class="btn btn-primary">
+                        Alterar
+                    </a>
+                </td>
+            </tr>
+         `;
+         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+
+     })
+ </script>
+
+ <script>
+
+    (() => {
+
+        const headers = new Headers();
+        headers.append('Accept','application/json');
+
+        fetch('/tiposdeprodutos', {headers})
+        .then(res => res.json())
+        .then(tiposdeprodutos => console.log(tiposdeprodutos));
+
+
+    })();
+
+ </script>
+
+<!-- Rodapé vazio -->
+<% include ../partials/rodape.html %>
+
+</body>
+</html>

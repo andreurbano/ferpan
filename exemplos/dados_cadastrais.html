@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <link rel="icon" href="/img/favicon.ico">
+
+        <title>Portal do Provedor</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="/css/navbar.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container">
+
+        <div style="padding-bottom: 20px;"><img src="/img/logo.png"/></div>
+
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Portal do Provedor</a>
+
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-edit"></span> SICI <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/sici/atual">Coleta em andamento</a></li>
+
+                                <li><a href="#">Histórico de Coletas</a></li>
+
+                            </ul>
+                        </li>
+
+
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> NETFENAS TELECOMUNICACOES LTDA <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+    <li><a href="/minhaConta">Minha Conta</a></li>
+
+    <li><a href="/logout">Sair</a></li>
+
+    </ul>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <ol class="breadcrumb">
+    <li><a href="/sici">SICI</a></li>
+
+    <li><a href="/sici/atual">SICI referente a setembro/2017</a></li>
+
+    <li class="active">Dados cadastrais</li>
+    </ol>
+
+    <h3>Dados cadastrais</h3>
+    <hr/>
+
+    <form method="post" id="formulario">
+    <div class="form-group has-error has-feedback">
+    <label class="control-label" for="razaoSocial">Razão Social:</label>
+    <input type="text" class="form-control" id="razaoSocial" name="razaoSocial" value=""/>
+    <p class=" pull-right text-danger">Campo obrigatório!</p>
+    </div> 
+    <div class="form-group has-error has-feedback">
+    <label class="control-label" for="outorgaFistel">Outorga Fistel:</label>
+    <input type="text" class="form-control inteiroPositivo" id="outorgaFistel" name="outorgaFistel" value=""/>
+    <p class=" pull-right text-danger">Campo obrigatório!</p>
+    </div>
+            <div class="form-group has-error has-feedback">
+                <label class="control-label" for="uf">UF:</label>
+                <select class="form-control" id="uf" name="uf">
+                    <option value="">Selecione...</option>
+                    <option value="AC" >AC</option><option value="AL" >AL</option><option value="AM" >AM</option><option value="AP" >AP</option><option value="BA" >BA</option><option value="CE" >CE</option><option value="DF" >DF</option><option value="ES" >ES</option><option value="GO" >GO</option><option value="MA" >MA</option><option value="MG" >MG</option><option value="MS" >MS</option><option value="MT" >MT</option><option value="PA" >PA</option><option value="PB" >PB</option><option value="PE" >PE</option><option value="PI" >PI</option><option value="PR" >PR</option><option value="RJ" >RJ</option><option value="RN" >RN</option><option value="RO" >RO</option><option value="RR" >RR</option><option value="RS" >RS</option><option value="SC" >SC</option><option value="SE" >SE</option><option value="SP" >SP</option><option value="TO" >TO</option>
+                </select>
+                <p class=" pull-right text-danger">Campo Obrigatório!</p>
+            </div>
+
+            <div class="form-group has-error has-feedback">
+                <label class="control-label" for="municipio">Município:</label>
+                <div id="municipioOptions">
+                    <select class="form-control" name="municipio" id="municipio" disabled="true">
+                        <option value="">Selecione...</option>
+
+                    </select>
+                </div>
+                <p class="pull-right text-danger">Campo obrigatório!</p>
+            </div>
+
+            <div class="form-group ">
+                <label class="control-label" for="linhaGratuita">Linha Gratuita:</label>
+                <input type="text" class="form-control inteiroPositivo" id="linhaGratuita" name="linhaGratuita" value=""/>
+            </div>
+
+            <br/>
+
+            <div>
+                <div class="pull-left">
+                    <a href="/sici/atual/empresa/repetir" class="btn btn-primary">Repetir valores</a>
+                </div>
+
+                <div class="pull-right">
+                    <button type="submit" id="btnSubmit"class="btn btn-primary">Salvar alterações</button>
+                    <a href="/sici/atual" class="btn btn-default">Voltar</a>
+
+                </div>
+            </div>
+
+        </form>
+
+
+        <script src="/js/jquery-2.1.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.mask.min.js"></script>
+
+        <script type="text/javascript">
+
+            $('.inteiroPositivo').mask('0#');
+
+            $('#uf').on('change', function() {
+            $.get("/" + $('#uf').val() + "/municipios", function(data, status) {
+            $('#municipioOptions').html(data);
+            });
+            });
+
+            $('body').on('change', '#formulario input, #formulario select', function() {
+            var pai = $(this).closest('.form-group');
+            pai.removeClass('has-error has-feedback');
+            pai.find('.text-danger').remove();
+            $('#msgConfirmacao').remove();
+            });
+
+        </script>
+    </body>
+</html>

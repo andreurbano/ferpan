@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Usuários</title>
+    <!-- Náo tem na apostila. Include como se usa no PHP.
+    Serve para incluir titulos e rodapes -->
+    <% include ../partials/bs.html %>
+
+</head>
+
+<body class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabecalho.html %>
+
+
+
+    <!-- Define a action -->
+    <%
+        let action='/usuarios';
+        if(usuario.id){
+            action='/usuarios/' + usuario.id + '?_method=PUT';
+        }
+    %>
+
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div class="text-center">
+            <h1>Usuários</h1>
+        </div>
+
+        <!-- Validação dos campos -->
+        <% include ../partials/erros-validacao.html %>
+        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+
+            <div class="form-group">
+
+                <!-- Campo Consultoria ID. -->
+                <div class="col-sm-6 container">
+                    <%if(usuario.id){%>
+                        <input type="hidden" name="id" value="<%=usuario.id%>">
+                    <%}%>
+
+                    <label for="inputnome" class="control-label">Nome</label>
+                    <div>
+                        <input type="text" id="inputnome" class="form-control" name="nome" placeholder="Nome" autofocus value="<%=usuario.nome%>">
+                    </div>
+                </div>
+
+                <!-- Campo Email -->
+                <div class="col-sm-6 container">
+                    <label for="inputemail" class="control-label">Email</label>
+                    <div>
+                        <input type="email" id="inputemail" class="form-control" name="email" placeholder="Email" autofocus value="<%=usuario.email%>">
+                    </div>
+                </div>
+
+                <!-- Campo Usuário -->
+                <div class="col-sm-6 container">
+                    <label for="inputusername" class="control-label">Usuário</label>
+                    <div>
+                        <input type="text" id="inputusername" class="form-control" name="username" placeholder="Usuário" autofocus value="<%=usuario.username%>">
+                    </div>
+                </div>
+
+                <!-- Campo Senha -->
+                <div class="col-sm-6 container">
+                    <label for="inputpass" class="control-label">Senha</label>
+                    <div>
+                        <input type="password" id="inputpass" class="form-control" name="pass" placeholder="Senha" autofocus value="<%=usuario.pass%>">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botão Gravar(Submit) -->
+            <div class="col-sm-6 form-group container">
+                <div >
+                    <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>    
+    
+    <!-- Rodapé -->
+<!--    <% include ../partials/rodape.html %> -->
+</body>
+
+</html>

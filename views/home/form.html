@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ferpan RJ - Controle de Estoque</title>
+    <!-- Náo tem na apostila. Include como se usa no PHP.
+    Serve para incluir titulos e rodapes -->
+    <% include ../partials/bs.html %>
+
+    <script>
+        function ArmazenaDadosLogin() {
+            localStorage.setItem('var_name', usuario.nome);
+            localStorage.setItem('var_email', usuario.email);
+
+          /*  alert(var_name);
+              alert(var_email);
+          */  
+
+        }
+    </script>
+
+</head>
+
+<body class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>Navbar example</h1>
+        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>
+        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
+        </p>
+    </div>
+   
+
+
+    <!-- Conteúdo -->
+    <div class="jumbotron header clearfix">
+        <p class="lead">Listagem de Saldos Atuais</p>
+        <br>
+        <br>
+        <p class="lead">Sucata Ferrosa</p>
+        <p class="lead">Sucata Tubos de Ferro</p>
+        <p class="lead">Sucata de Cabo de Cobre</p>
+        <p class="lead">Guindaste e Acessórios </p>
+        <p class="lead">Sucata Alumínio</p>
+    </div>
+
+    <!-- Rodapé -->
+    <!--    <% include ../partials/rodape.html %> -->
+
+</body>
+</html>

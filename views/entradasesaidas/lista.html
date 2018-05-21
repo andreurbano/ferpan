@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entradas & Saídas</title>
+    <!-- Náo tem na apostila. Include como se usa no PHP.
+    Serve para incluir titulos e rodapes -->
+    <% include ../partials/bs.html %>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+    <script>
+        // Preenche o lookup com Produtos
+        function PreencheProduto(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/produtos", function(result){
+                var Opcoes = '';
+                $.each(result, function(i, field){
+                    //
+                    if(valorAtual == field.id ){
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + ' selected' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                });
+                $(idComponente).append(Opcoes);
+            });
+        }
+    
+        function OrdenaElementoSelect(elementoHTML) {
+            var lb = document.getElementById(elementoHTML);
+            arrTexts = new Array();
+
+            for(i=0; i<lb.length; i++)  {
+            arrTexts[i] = lb.options[i].text;
+            }
+
+            arrTexts.sort();
+
+            for(i=0; i<lb.length; i++)  {
+            lb.options[i].text = arrTexts[i];
+            lb.options[i].value = arrTexts[i];
+            }
+        }
+
+        function buscaEntradaSaida(val) {
+
+            var xhttp;    
+            if (val == "") {
+                document.getElementById("txtHint").innerHTML = "";
+                return;
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+           
+            xhttp.open("GET", "/entradasesaidas/lista/" + val, true);
+            xhttp.send();
+        }
+
+    </script>
+
+</head>
+<body class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <!-- Lookup Produtos -->
+        <form action="">
+            <div class="form-group">
+                <label class="control-label" for="prod">Selecione um Produto</label>
+                <div>
+                    <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required onchange="buscaEntradaSaida(this.value)" ></select>
+                </div>
+                <script>
+                    //PreencheProduto('#prod', prod.value);
+                    PreencheProduto('#prod', 1);
+                    OrdenaElementoSelect('#prod');
+                </script>
+            </div>
+        </form>
+
+        <script>
+            buscaEntradaSaida(1);
+        </script>
+            
+        <!-- Título -->
+        <div class="text-center">
+            <h2>Entradas & Saídas</h2>
+        </div>
+
+        <!-- Botão incluir -->
+        <a href="/entradasesaidas/form" class="btn btn-xs btn-success botao_novo"><span class="glyphicon glyphicon-plus"></span></a>
+
+        <!-- Tabela -->
+        <div id="txtHint"></div>
+
+    </div>
+
+ <script src="/socket.io/socket.io.js"></script>  
+ 
+ <script>
+     const socket = io();
+     socket.on('novoEntradaSaida', entradasaida => {
+
+         const template = `
+            <tr>
+
+                <td class="text-center">${entradasaida.dt_emissao}</td>
+                <td class="text-center">${entradasaida.nf_serie}</td>
+                <td class="text-center">${entradasaida.nf_num}</td>
+                <td>${entradasaida.fornecedor}</td>
+                <td>${entradasaida.produto}</td>
+                <td class="text-right">${entradasaida.qtde}</td>
+                <td class="text-right">${entradasaida.valor}</td>
+                <td class="text-center">${entradasaida.tipoentsai}</td>
+                <td class="text-right">${entradasaida.saldo_qtde}</td>
+                <td class="text-right">${entradasaida.saldo_valor}</td>
+                <td class="text-right">${entradasaida.preco_medio}</td>
+
+                <td class="text-center">
+
+                    <form method="POST" action="/entradasesaidas/${entradasaida.id}?_method=DELETE">
+                        <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                        <a href="/entradasesaidas/form/${entradasaida.id}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                    </form>
+
+                </td>
+
+            </tr>
+         `;
+         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+
+     })
+ </script>
+
+ <script>
+
+    (() => {
+
+        const headers = new Headers();
+        headers.append('Accept','application/json');
+
+        fetch('/entradasesaidas', {headers})
+        .then(res => res.json())
+        .then(entradasesaidas => console.log(entradasesaidas));
+
+
+    })();
+ </script>
+
+
+</body>
+</html>

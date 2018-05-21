@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fornecedores</title>
+    <!-- Náo tem na apostila. Include como se usa no PHP.
+    Serve para incluir titulos e rodapes -->
+    <% include ../partials/bs.html %>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+
+</head>
+<body class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div>
+            <h2>Fornecedores</h2>
+        </div>
+
+        <a href="/fornecedores/form" class="btn btn-xs btn-success botao_novo"><span class="glyphicon glyphicon-plus"></span></a>
+
+        <div class="table-responsive tabela">
+            <table class='table table-sm hover table-hover table-bordered table-striped'>    
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Razão Social</th>
+                        <th scope="col">CNPJ</th>
+                        <th scope="col" class="text-center">Ação</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% for(fornecedor of fornecedores) { %>
+                        <tr>
+                            <td><%= fornecedor.razao_social %></td>
+                            <td><%= fornecedor.cnpj %></td>
+
+                            <td class="text-center">
+                                <form method="POST" action="/fornecedores/<%=fornecedor.id%>?_method=DELETE">
+                                    <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                                    <a href="/fornecedores/form/<%=fornecedor.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </form>
+                            </td>
+                        </tr>
+            
+                    <%}%>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+ <script src="/socket.io/socket.io.js"></script>  
+ 
+ <script>
+     const socket = io();
+     socket.on('novoFornecedor', fornecedor => {
+         console.log(fornecedor.id);
+
+         const template = `
+            <tr>
+
+                <td>${fornecedor.razao_social}</td>
+                <td>${fornecedor.cnpj}</td>
+
+                <td>
+                    <form method="POST" action="/fornecedores/${fornecedor.id}?_method=DELETE">
+                        <button type="SUBMIT" class="btn btn-danger">Remover</button>
+                    </form>
+                    <a href="/fornecedores/form/${fornecedor.id}" class="btn btn-primary">
+                        Alterar
+                    </a>
+                </td>
+            </tr>
+         `;
+         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+
+     })
+ </script>
+
+ <script>
+
+    (() => {
+
+        const headers = new Headers();
+        headers.append('Accept','application/json');
+
+        fetch('/fornecedores', {headers})
+        .then(res => res.json())
+        .then(fornecedores => console.log(fornecedores));
+
+
+    })();
+
+ </script>
+
+<!-- Rodapé vazio -->
+<% include ../partials/rodape.html %>
+
+</body>
+</html>

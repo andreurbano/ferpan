@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title></title>  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+            <style type="text/css">   
+              @import url("Estilo.css");  
+            </style>  
+            <script type="text/javascript" src="Logica.js"></script>  
+    </head>  
+    <body >  
+        <p align = "Right"> <img src="Imagens\ace.png" width="640" height="480" alt="Imagens\ace"/></p>>  
+        <a href="http://www.youtube.com">Entrar no Youtube</a>  
+        <p id="id1"> Página de aprendizado </p>  
+            <form action="">  
+                First name: <input type="text" name="firstname" id="firstname" /><br />  
+                Last name: <input type="text" name="lastname" id="lastname" />  
+        <input type="submit" value="Enviar"  
+               onclick="getFullName()">   
+          </form>  
+    </body>
+<script type="text/javascript">  
+ function getFullName(){
+       var first = document.getElementById('firstname').value;
+       var last = document.getElementById('lastname').value;
+       alert(first + " " + last);
+}
+</script>
+</html>

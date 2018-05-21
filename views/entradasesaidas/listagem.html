@@ -1,0 +1,46 @@
+<!-- Tabela -->
+<div class="table-responsive tabela">
+
+    <table class='table table-sm hover table-hover table-bordered table-striped'>    
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center">Emissão</th>
+                <th scope="col" class="text-center">Série</th>
+                <th scope="col" class="text-center">Número</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col" class="text-right">Peso/Qtde</th>
+                <th scope="col" class="text-right">Valor</th>
+                <th scope="col" class="text-center">Tipo</th>
+                <th scope="col" class="text-center">Sld Peso</th>
+                <th scope="col" class="text-center">Sld Valor</th>
+                <th scope="col" class="text-center">Pr. Médio</th>
+                <th scope="col" class="text-center">Ação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for(entradasaida of entradasesaidas) { %>
+                <tr>
+                    <td class="text-center"><%= entradasaida.dt_emissao %></td>
+                    <td class="text-center"><%= entradasaida.nf_serie %></td>
+                    <td class="text-center"><%= entradasaida.nf_num %></td>
+                    <td><%= entradasaida.fornecedor %></td>
+                    <td class="text-right"><%= entradasaida.qtde %></td>
+                    <td class="text-right"><%= entradasaida.valor %></td>
+                    <td class="text-center"><%= entradasaida.tipoentsai %></td>
+                    <td class="text-right"><%= entradasaida.saldo_qtde %></td>
+                    <td class="text-right"><%= entradasaida.saldo_valor %></td>
+                    <td class="text-right"><%= entradasaida.preco_medio %></td>
+                    <td class="text-center">
+                        <form method="POST" action="/entradasesaidas/<%=entradasaida.id%>?_method=DELETE">
+                            <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                            <a href="/entradasesaidas/form/<%=entradasaida.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                        </form>
+                    </td>
+                </tr>
+            <%}%>
+
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemplo Popula Select</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        function PopulaMun(uf_selecionada) {
+            $.getJSON("http://localhost/municipios", function(result) {
+                var Opcoes = '';
+
+                $.each(result, function(i, field){
+                    // Seleciona com a UF que veio do BD 
+                    if(uf_selecionada == field.uf ){
+                        Opcoes = '<option value=' + '"' +  field.uf + '"' + ' selected' + '>' + field.uf + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.uf + '"' + '>' + field.uf + '</option>' + Opcoes;
+                    }
+                    return Opcoes;
+                });
+
+                //alert(Opcoes);
+
+            });
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    
+    <!-- Select UF -->
+    <div class="form-group">
+        <label for="inputUF" class="control-label">UF</label>
+        <select name="UF" id="inputUF">
+
+        </select>
+    </div>
+
+
+    <!-- Select Municipios -->
+    <div class="form-group">
+        <label for="inputMunicipios" class="control-label">Municipios</label>
+        <select name="Municipios" id="inputMunicipios">
+
+        </select>
+    </div>
+
+        
+    <!-- Select Consultorias -->
+    <div class="form-group">
+        <label for="inputConsultorias" class="control-label">Consultorias</label>
+        <select name="Consultorias" id="inputConsultorias">
+
+        </select>
+    </div>
+
+    <!-- Exercicios -->
+    <p id="demo">
+        <script> PopulaMun('SP'); </script>
+    </p>
+
+    <div id="log"></div>
+
+    <div id="log"></div>
+
+    <script>
+        //document.getElementById('demo').innerHTML = 'Texto do meu parágrafo';
+        //var x = document.getElementsByTagName('select');
+        //console.log(document.getElementsByTagName('select'));
+
+        //var x = document.getElementsByClassName('select');
+        //x[0].innerHTML = 'Texto 0';
+        //x[2].innerHTML = 'Texto 0';
+        //x[3].innerHTML = 'Texto 0';
+
+        //PopulaMun('SP');
+
+    </script>
+
+</body>
+</html>

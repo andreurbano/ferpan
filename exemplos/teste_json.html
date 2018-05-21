@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            
+            $(document).ready(function(){
+
+                // Preenche o lookup com UF
+                $.getJSON("http://localhost/municipios", function(result){
+                    alert('Passei 01');
+
+                    var Opcoes = '';
+                    var UF_Atual = 'SP';
+                    alert('Passei 02');
+                    $.each(result, function(i, field){
+                        alert('Passei 03');
+
+                        //
+                        if(UF_Atual == field.uf ){
+                            Opcoes = '<option value=' + '"' +  field.uf + '"' + ' selected' + '>' + field.uf + '</option>' + Opcoes;
+                        }
+                        else{
+                            Opcoes = '<option value=' + '"' +  field.uf + '"' + '>' + field.uf + '</option>' + Opcoes;
+                        }
+
+                    });
+                    $("#uf").append(Opcoes);
+                });
+
+                // Preenche o lookup com UF
+                $.getJSON("http://localhost/municipios", function(result){
+
+                    var Opcoes = '';
+                    var valorAtual = 'RIO DE JANEIRO';
+                    $.each(result, function(i, field){
+                        //
+                        if(valorAtual == field.nome ){
+                            Opcoes = '<option value=' + '"' +  field.nome + '"' + ' selected' + '>' + field.nome + '</option>' + Opcoes;
+                        }
+                        else{
+                            Opcoes = '<option value=' + '"' +  field.nome + '"' + '>' + field.nome + '</option>' + Opcoes;
+                        }
+
+                    });
+                    $("#inputMunicipio").append(Opcoes);
+                });
+
+
+
+
+                // Preenche o lookup com Consultorias
+                $.getJSON("http://localhost/consultorias", function(result){
+                    var Opcoes = '';
+                    var idConsultoria = 3;
+                    $.each(result, function(i, field){
+
+                        //
+                        if(idConsultoria == field.id ){
+                            Opcoes = '<option value=' + '"' +  field.nome + '"' + ' selected' + '>' + field.nome + '</option>' + Opcoes;
+                        }
+                        else{
+                            Opcoes = '<option value=' + '"' +  field.nome + '"' + '>' + field.nome + '</option>' + Opcoes;
+                        }
+
+                    });
+                    $("#inputConsultoria").append(Opcoes);
+                });
+
+            });
+
+        </script>
+    </head>
+    <body>
+
+    <!-- Lookup UF -->
+    <select class="form-control selectpicker show-tick" id="uf" name="uf">
+
+    </select>
+
+    <!-- Lookup Municipios -->
+    <select class="form-control selectpicker show-tick" id="inputMunicipio" name="inputMunicipio">
+
+    </select>
+    
+
+    <!-- Lookup Consultorias -->
+    <select class="form-control selectpicker show-tick" id="inputConsultoria" name="inputConsultoria">
+
+    </select>
+
+    </body>
+</html>

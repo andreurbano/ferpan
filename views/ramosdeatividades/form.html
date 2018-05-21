@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ramos de Atividades</title>
+    <!-- Inclui Bootstrap e Jquery -->
+    <% include ../partials/bs.html %>
+</head>
+
+<body class="container">
+    <!-- Define a action -->
+    <%
+        let action='/ramosdeatividades';
+        if(ramodeatividade.id){
+            action='/ramosdeatividades/' + ramodeatividade.id + '?_method=PUT';
+        }
+    %>
+    <!-- Cabeçalho com Cadastros -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div class="text-center">
+            <h1>Ramos de Atividades</h1>
+        </div>
+
+        <!-- Validação dos campos -->
+        <% include ../partials/erros-validacao.html %>
+        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+
+            <!-- Campo Sigla -->
+            <div class="form-group container">
+                <%if(ramodeatividade.id){%>
+                    <input type="hidden" name="id" value="<%=ramodeatividade.id%>">
+                <%}%>
+                <label for="inputdescricao" class="control-label">Descrição</label>
+                <div>
+                    <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=ramodeatividade.descricao%>">
+                </div>
+            </div>
+
+            <!-- Botão Gravar(Submit) -->
+            <div class="form-group container">
+                <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+            </div>
+                    
+        </form>
+        <!-- Rodapé -->
+        <% include ../partials/rodape.html %>
+    
+    </div>   
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Entradas & Saídas</title>
+    <!-- Inclui Bootstrap e Jquery -->
+    <% include ../partials/bs.html %>
+
+    <script>
+        // Preenche o lookup com Fornecedores
+        function PreencheFornecedor(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/fornecedores", function(result){
+
+                var Opcoes = '';
+                $.each(result, function(i, field){
+                    //
+                    if(valorAtual == field.id ){
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + ' selected' + '>' + field.razao_social + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + '>' + field.razao_social + '</option>' + Opcoes;
+                        
+                    }
+
+                });
+                $(idComponente).append(Opcoes);
+            });
+        }
+        // Preenche o lookup com Produtos
+        function PreencheProduto(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/produtos", function(result){
+                var Opcoes = '';
+                $.each(result, function(i, field){
+                    //
+                    if(valorAtual == field.id ){
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + ' selected' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                    else{
+                        Opcoes = '<option value=' + '"' +  field.id + '"' + '>' + field.descricao + '</option>' + Opcoes;
+                    }
+                });
+                $(idComponente).append(Opcoes);
+            });
+        }
+
+
+        function PreencheTipo(idComponente, valorAtual) {
+            $.getJSON("http://" + window.location.host + "/produtos", function(result){
+
+                var Opcoes = '';
+
+                if(valorAtual == 1 ){
+                    Opcoes = '<option value=' + '"' +  '1' + '"' + ' selected' + '>' + 'Entrada' + '</option>' + Opcoes;
+                    Opcoes = '<option value=' + '"' +  '2' + '"' + '>' + 'Saída'   + '</option>' + Opcoes;
+                }
+                else {
+
+                    if(valorAtual == 2 ){
+                        Opcoes = '<option value=' + '"' +  '1' + '"' + '>' + 'Entrada' + '</option>' + Opcoes;
+                        Opcoes = '<option value=' + '"' +  '2' + '"' + ' selected' + '>' + 'Saída'   + '</option>' + Opcoes;
+                    }
+                    Opcoes = '<option value=' + '"' +  '1' + '"' + '>' + 'Entrada' + '</option>' + Opcoes;
+                    Opcoes = '<option value=' + '"' +  '2' + '"' + '>' + 'Saída'   + '</option>' + Opcoes;
+                }
+
+                $(idComponente).append(Opcoes);
+            });
+        }
+
+        function myFunction(elementoHTML) {
+            var x = document.getElementById(elementoHTML).value;
+            alert("O produto selecionado foi: " + x);
+            //document.getElementById("demo").innerHTML = "You selected: " + x;
+        }
+
+        function OrdenaElementoSelect(elementoHTML) {
+            var lb = document.getElementById(elementoHTML);
+            arrTexts = new Array();
+
+            for(i=0; i<lb.length; i++)  {
+            arrTexts[i] = lb.options[i].text;
+            }
+
+            arrTexts.sort();
+
+            for(i=0; i<lb.length; i++)  {
+            lb.options[i].text = arrTexts[i];
+            lb.options[i].value = arrTexts[i];
+            }
+        }
+
+    </script>
+
+</head>
+
+<body class="container">
+    <!-- Define a action -->
+    <%
+        let action='/entradasesaidas';
+        if(entradasaida.id){
+            action='/entradasesaidas/' + entradasaida.id + '?_method=PUT';
+        }
+    %>
+    <!-- Cabeçalho com Cadastros -->
+    <% include ../partials/cabecalho.html %>
+
+    <!-- Conteúdo -->
+    <div class="container conteudo">
+
+        <div class="text-center">
+            <h1>Entradas & Saídas</h1>
+        </div>
+
+        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+
+            <!-- Campo Id e Dt. Emissão -->
+            <div class="form-group container">
+                <!-- Campo Id -->
+                <%if(entradasaida.id){%>
+                    <input type="hidden" name="id" value="<%=entradasaida.id%>">
+                <%}%>
+                <!-- Campo Dt. Emissão -->
+                <label for="inputdt_emissao" class="control-label">Dt. Emissão</label>
+                <div>
+                    <input class="form-control" id="date" type="date" value="<%=entradasaida.dt_emissao%>" name="dt_emissao" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
+                </div>
+            </div>
+
+
+            <!-- Campo NF Série -->
+            <div class="form-group container">
+                <label for="inputnf_serie" class="control-label">NF Série</label>
+                <div>
+                    <input type="number" id="inputnf_serie" class="form-control" name="nf_serie" placeholder="000" autofocus value="<%=entradasaida.nf_serie%>"data-error="Por favor, informe a Série da NFe correta." required>
+                </div>
+            </div>
+
+            <!-- Campo NF Nº -->
+            <div class="form-group container">
+                <label for="inputnf_num" class="control-label">NF Nº</label>
+                <div>
+                    <input type="number" id="inputnf_num" class="form-control" name="nf_num" placeholder="0000000000" autofocus value="<%=entradasaida.nf_num%>" required>
+                </div>
+            </div>
+
+            <!-- Lookup Fornecedores -->
+            <div class="form-group container">
+                <label class="control-label" for="id_fornecedor">Fornecedor</label>
+                <div>
+                    <select class="form-control selectpicker show-tick" id="id_fornecedor" name="id_fornecedor" required></select>
+                </div>
+                <script>
+                    PreencheFornecedor('#id_fornecedor', '<%=entradasaida.id_fornecedor%>');
+                    OrdenaElementoSelect('#id_fornecedor');
+                </script>
+            </div>
+                
+            <!-- Lookup Produtos -->
+            <div class="form-group container">
+                    <label class="control-label" for="prod">Produto</label>
+                    <div>
+                        <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required></select>
+                    </div>
+                    <script>
+                        PreencheProduto('#prod', '<%=entradasaida.id_produto%>');
+                        OrdenaElementoSelect('#prod');
+                    </script>
+                </div>
+        
+            <!-- Campo Quantidade -->
+            <div class="form-group container">
+                <label for="qtde" class="control-label">Quantidade</label>
+                <div>
+                    <input type="number" step="0.01" id="qtde" class="form-control" name="qtde" placeholder="0.00" autofocus value="<%=entradasaida.qtde%>" required>
+                </div>
+            </div>
+    
+            <!-- Campo Valor -->
+            <div class="form-group container">
+                <label for="valor" class="control-label">Valor</label>
+                <div>
+                    <input type="number" step="0.01" id="valor" class="form-control" name="valor" placeholder="0.00" autofocus value="<%=entradasaida.valor%>" required>
+                </div>
+            </div>
+
+            <!-- Lookup Tipo Entrada ou Saída -->
+            <div class="form-group container">
+                    <label class="control-label" for="tipo">Tipo</label>
+                    <div>
+                        <select class="form-control selectpicker show-tick" id="tipo" name="tipo" required></select>
+                    </div>
+                    <script>
+                        PreencheTipo('#tipo', '<%=entradasaida.tipo%>');
+                        OrdenaElementoSelect('#tipo');
+                    </script>
+                </div>
+
+            <!-- Botão Gravar(Submit) -->
+            <div class="form-group container">
+                <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+            </div>
+
+        </form>
+    
+    </div>
+
+</body>
+
+</html>

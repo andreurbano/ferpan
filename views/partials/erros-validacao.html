@@ -1,0 +1,11 @@
+<%if(locals.erros){%>
+
+    <ul>
+        <% for(erro of erros) {%>
+            <li class="alert alert-danger">
+                <%=erro.msg%>
+            </li>
+        <%}%>
+    </ul>
+
+<%}%>

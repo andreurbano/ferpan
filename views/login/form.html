@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Estoque Ferpan - Login</title>
+    <!-- Inclui Bootstrap e Jquery -->
+    <% include ../partials/bs.html %>
+    <link rel="stylesheet" href="/css/login.css">
+    <script type=”text/javascript”> </script>
+  </head>
+
+  <body class="container">
+
+    <!-- Cabeçalho-->
+    <header>
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- Logotipo -->
+            <a class="navbar-brand" >
+              Ferpan RJ - Controle de Estoque
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <div class="container-fluid conteudo">
+
+      <div class="text-center">
+          <h1>Login</h1>
+      </div>
+  
+      <form class="form-horizontal" role="form" action="home" method="post"> 
+        <!--Cx. de Texto Email -->
+        <div class="form-group">
+          <label for="inputEmail" class="control-label">Email</label>
+          <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required autofocus>
+        </div>
+        <!--Cx. de Texto Senha -->
+        <div class="form-group">
+          <label for="inputPassword" class="control-label">Senha</label>
+          <input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Senha" required autofocus>
+        </div>
+        <!-- Botão Entrar -->
+        <div class="form-group">
+          <input type="submit" class="btn btn-success btn-xs" value="Entrar">
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Rodapé vazio -->
+    <% include ../partials/rodape.html %>
+
+  </body>
+</html>
