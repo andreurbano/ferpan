@@ -9,18 +9,28 @@
     <% include ../partials/bs.html %>
 
 </head>
+
 <body class="container">
+    <!-- Cabeçalho -->
     <% include ../partials/cabecalho.html %>
 
+    <!-- Conteúdo -->
+    <div class="conteudo">
+            
+        <!-- Título -->
+        <h2 class="container text-center">Entrada & Saída Salvo com Sucesso!</h2>
 
-    <div class="container text-center conteudo">
-        <h2>Entrada & Saída Salvo com Sucesso!</h2>
+        <br>
+        <br>
+        <br>
 
-        <a href="/entradasesaidas" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Entradas & Saídas</a>
-        <a href="/entradasesaidas/form" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+        <div class="container text-center">
+            <a href="/entradasesaidas" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Entradas & Saídas</a>
+            <a href="/entradasesaidas/form" class="btn btn-xs btn-success" autofocus><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+        </div>
+
     </div>
-    <% include ../partials/rodape_vazio.html %>
     
-
 </body>
+
 </html>

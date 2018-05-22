@@ -16,7 +16,7 @@ class ProdutoDao{
     // Lista Saldo dos Produtos
     listaSaldoProdutos() {
         return new Promise((resolve, reject)=>{
-            this._connection.query('SELECT p.id, p.descricao, p.saldo_atu_dt, p.saldo_atu_qtde, u.Sigla, p.saldo_atu_valor FROM produtos p, unidadesdemedidas u WHERE (p.id_unidademedida = u.id) ORDER BY p.descricao DESC',(err, produtos)=>{;
+            this._connection.query('SELECT p.id, p.descricao, p.saldo_atu_dt, p.saldo_atu_qtde, u.Sigla, p.saldo_atu_valor FROM produtos p, unidadesdemedidas u WHERE (p.id_unidademedida = u.id) ORDER BY p.descricao ASC',(err, produtos)=>{;
                 if(err) return reject(err);
                 resolve(produtos); 
             }); 
