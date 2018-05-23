@@ -31,28 +31,47 @@ formulario{
 }
 
 
+.botao_flutuante {
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  text-decoration: none;
+  color: white;
+  background-color: #128c7e;
+  padding: 1em;
+
+  /* Transparência do botão */
+  filter:alpha(opacity=70);
+  opacity: 0.7;
+  -moz-opacity:0.7;
+  -webkit-opacity:0.7;
+
+  /* Sombra do botão */
+  box-shadow: 2px 2px 0 #000;
+  -webkit-box-shadow: 2px 2px 0 #000;
+  -moz-box-shadow: 2px 2px 0 #000;  
+}
+.botao_flutuante:hover {
+  background-color: #58392e;
+  color: white;
+}
+
+
 /* --------------------------------------------------- */ 
 
 /* Space out content a bit */
 body {
-    padding-top: 50px;
-    padding-bottom: 50px;
     color: #58392e;
+    margin-top: 100px;
+    padding-bottom: 20px;
   }
 
   body h1 {
     color: #58392e;
-    font-size: 150%;
-  }
-
-  body h2 {
-    color: #58392e;
     position: absolute;
-    margin-top: -0.0%;
-    margin-left: 8%;
-    font-size: 150%;
-
+    margin-top: -13.0%;
   }
+
     
     /* Custom page header */
   .header {
@@ -85,9 +104,6 @@ body {
   .btn-success:hover {
     background-color: #58392e;
   }
-
- 
-
 
 
   .navbar-default {
@@ -186,12 +202,9 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
   
-  body h2 {
-    margin-top: 0%;
-    margin-left: 2%;
-    
+  body h1 {
+    margin-top: -2.5%;
   }
     
 }
