@@ -38,6 +38,7 @@ formulario{
   text-decoration: none;
   color: white;
   background-color: #128c7e;
+  border-color: #58392e;
   padding: 1em;
 
   /* Transparência do botão */
@@ -53,6 +54,7 @@ formulario{
 }
 .botao_flutuante:hover {
   background-color: #58392e;
+  border-color: #128c7e;
   color: white;
 }
 

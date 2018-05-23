@@ -15,8 +15,6 @@
     <!-- Cabeçalho -->
     <% include ../partials/cabecalho.html %>
 
-
-
     <!-- Define a action -->
     <%
         let action='/usuarios';
@@ -24,7 +22,6 @@
             action='/usuarios/' + usuario.id + '?_method=PUT';
         }
     %>
-
 
     <!-- Conteúdo -->
     <div class="container conteudo">
@@ -80,17 +77,14 @@
             <!-- Botão Gravar(Submit) -->
             <div class="col-sm-6 form-group container">
                 <div >
-                    <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+                    <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
                 </div>
             </div>
 
         </form>
 
-
     </div>    
     
-    <!-- Rodapé -->
-<!--    <% include ../partials/rodape.html %> -->
 </body>
 
 </html>

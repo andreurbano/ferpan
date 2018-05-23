@@ -89,9 +89,7 @@
     <!-- Conteúdo -->
     <div class="container conteudo">
 
-        <div class="text-center">
-            <h1>Produtos</h1>
-        </div>
+        <h1>Produtos</h1>
 
         <!-- Validação dos campos -->
         <% include ../partials/erros-validacao.html %>
@@ -135,7 +133,6 @@
                     </script>
                 </div>
     
-
             <!-- Campo Data do Saldo Inicial -->
             <div class="form-group container">
                 <label for="inputsaldo_ini_dt" class="control-label">Data do Saldo Inicial</label>
@@ -160,7 +157,6 @@
                 </div>
             </div>
     
-
             <!-- Campo Valor do Preço Médio Inicial -->
             <div class="form-group container">
                 <label for="saldo_ini_preco_medio" class="control-label">Valor do Preço Médio Inicial</label>
@@ -168,12 +164,10 @@
                     <input type="number" step="0.01" id="saldo_ini_preco_medio" class="form-control" name="saldo_ini_preco_medio" placeholder="0.00" autofocus value="<%=produto.saldo_ini_preco_medio%>" required>
                 </div>
             </div>
-    
-
 
             <!-- Botão Gravar(Submit) -->
             <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-save"></span>     Gravar</button>
+                <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
             </div>
                     
         </form>
