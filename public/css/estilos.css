@@ -13,6 +13,26 @@
     border-color: #58392e;
 }
 
+
+.tabela thead tr{
+
+
+}
+
+.thead-dark tr{
+  background-color:#128c7e;
+  color: white;
+  border-color: #58392e;
+
+}
+
+border-color: #128c7e;
+
+
+
+
+
+
 formulario{
     margin-top: 5px;
     border-color: #58392e;
@@ -56,6 +76,8 @@ formulario{
   border-color: #128c7e;
   color: white;
 }
+
+
 
 
 /* --------------------------------------------------- */ 
