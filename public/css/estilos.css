@@ -101,6 +101,12 @@ body {
     border-color: #128c7e;
   }
 
+  .id_produto{
+    width: 25px;
+  }
+
+
+
 
   .navbar-default {
     background-color: #58392e;
