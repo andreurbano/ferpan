@@ -30,6 +30,9 @@
   border-color: #58392e;
   padding: 1em;
 
+  /*Arredonda botão*/
+  border-radius: 45px;
+
   /* Transparência do botão */
   filter:alpha(opacity=70);
   opacity: 0.7;
@@ -63,7 +66,9 @@ body {
     color: #58392e;
     position: absolute;
     margin-top: -13.0%;
-    font-size: 230%
+    font-size: 230%;
+    text-align: center;
+
   }
 
     /* Custom page header */
@@ -196,6 +201,7 @@ body {
   
   body h1 {
     margin-top: -2.5%;
+    text-align: center;
   }
     
 }

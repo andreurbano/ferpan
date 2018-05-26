@@ -67,54 +67,50 @@
 
 </head>
 <body class="container">
+
     <!-- Cabeçalho -->
     <% include ../partials/cabecalho.html %>
 
-    <!-- Conteúdo -->
-    <div class="container">
+    <h1 class="container text-center">Entradas & Saídas</h1>
 
-        <h1>Entradas & Saídas</h1>
-                
-        <!-- Título -->
-        <!--
-        <h1 class="container text-center">Entradas & Saídas</h1>
-        -->
+    <!-- Lookup Produtos -->
+    <div class="container col-sm-6">
+        <label class="control-label" for="prod">Produto</label>
+        <div>
+            <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required onchange="buscaEntradaSaida(this.value)" data-width="75%"></select>
 
-        <!-- Lookup Produtos -->
-        <form action="">
-            <div class="form-group">
-                <label class="control-label" for="prod">Produto</label>
-                <div>
-                    <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required onchange="buscaEntradaSaida(this.value)" data-width="75%"></select>
-
-                </div>
-                <script>
-                    //PreencheProduto('#prod', prod.value);
-                    PreencheProduto('#prod', 1);
-                    OrdenaElementoSelect('#prod');
-                </script>
-            </div>
-        </form>
-       
-        <!-- Campo Data Mês -->
-        <div class="form-group">
-            <label for="dataMes" class="control-label">Mês</label>
-            <div>
-                <input type="month" id="dataMes" class="form-control" name="dataMes">
-            </div>
         </div>
-
         <script>
-            buscaEntradaSaida(1);
+            //PreencheProduto('#prod', prod.value);
+            PreencheProduto('#prod', 1);
+            OrdenaElementoSelect('#prod');
         </script>
-            
-        <!-- Botão incluir -->
-        <a href="/entradasesaidas/form" class="btn btn-xs btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
-
-        <!-- Tabela -->
-        <div id="txtHint"></div>
-
     </div>
+    
+    <!-- Campo Data Mês -->
+    <div class="container col-sm-6">
+        <label for="dataMes" class="control-label">Mês</label>
+        <div>
+            <input type="month" id="dataMes" class="form-control" name="dataMes" value="2017-07-20">
+        </div>
+    </div>
+
+    <script>
+        buscaEntradaSaida(1);
+    </script>
+
+
+    <!-- Botão incluir -->
+    <a href="/entradasesaidas/form" class="btn btn-xs btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
+
+    <!-- Tabela -->
+    <div class="col-sm-12">
+        <div id="txtHint"></div>
+    </div>
+
+
+
+
 
  <script src="/socket.io/socket.io.js"></script>  
  
