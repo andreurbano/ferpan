@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#58392e">
     <title>Entradas & Saídas</title>
     <!-- Náo tem na apostila. Include como se usa no PHP.
     Serve para incluir titulos e rodapes -->
@@ -101,6 +102,24 @@
         </script>
 
     </div>
+
+
+    <form>
+        <div class="row">
+            <div class="col">
+                <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required onchange="buscaEntradaSaida(this.value)" data-width="75%"></select>
+            </div>
+
+            <div class="col">
+                <input type="month" id="dataMes" class="form-control" name="dataMes" value="<%= new Date(Date.now()).toISOString().substring(0, 7)%>">
+            </div>
+        </div>
+    </form>
+
+
+    
+        
+
 
     <!-- Tabela -->
     <div id="txtHint"></div>
