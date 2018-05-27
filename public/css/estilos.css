@@ -1,9 +1,3 @@
-.logotipo {
-    position: relative;
-    border-radius: 15px;
-    margin-top: -6px;
-}
-
 .thead-dark tr{
   background-color:#128c7e;
   color: white;
@@ -50,8 +44,6 @@
   color: white;
 }
 
-
-
 /* --------------------------------------------------- */ 
 
 /* Space out content a bit */
@@ -64,13 +56,6 @@ body {
     color: #58392e;
     font-size: 225%;
     text-align: center;
-  }
-
-  /* Custom page footer */
-  .footer {
-    padding-top: 2px;
-    color: white;
-    border-top: 1px solid #e5e5e5;
   }
 
   .btn-success{
@@ -91,8 +76,6 @@ body {
   .id_produto{
     width: 25px;
   }
-
-
 
 
   .navbar-default {
@@ -169,29 +152,10 @@ body {
     color: #ffffff;
   }
   
-  @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #f9f9f9;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-      color: #ffffff;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-      color: #ffffff;
-      background-color: #128c7e;
-    }
-  }  
-
-  
-     /* --------------------------------------------------- */ 
-
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  
+
   body {
     margin-top: 2%;
   }
@@ -199,7 +163,19 @@ body {
   body h1 {
     text-align: center;
   }
-    
-}
 
-  
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f9f9f9;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #128c7e;
+  }
+
+}
