@@ -31,7 +31,7 @@
   padding: 1em;
 
   /*Arredonda botão*/
-  border-radius: 45px;
+  /*border-radius: 45px;*/
 
   /* Transparência do botão */
   filter:alpha(opacity=70);

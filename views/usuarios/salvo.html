@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listagem</title>
-    <!-- Serve para incluir as os frameworks -->
-    <% include ../partials/bs.html %>
-    
+    <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
+    <% include ../partials/head.html %>
+    <title>Usuário Salvo com Sucesso!</title>
 </head>
+
 <body class="container">
     <% include ../partials/cabecalho.html %>
 
@@ -16,11 +14,7 @@
     <div>
             
         <!-- Título -->
-        <h2 class="container text-center">Usuário Salvo com Sucesso!</h2>
-
-        <br>
-        <br>
-        <br>
+        <h1 class="container text-center">Usuário Salvo com Sucesso!</h1>
 
         <div class="container text-center">
             <a href="/usuarios" class="btn btn-xs btn-success" autofocus><span class="glyphicon glyphicon-list-alt"></span>     Lista Usuários</a>

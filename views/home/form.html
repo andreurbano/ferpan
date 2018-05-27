@@ -1,28 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#58392e">
+    <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
+    <% include ../partials/head.html %>
 
     <title>Ferpan RJ - Controle de Estoque</title>
-    <!-- Náo tem na apostila. Include como se usa no PHP.
-    Serve para incluir titulos e rodapes -->
-    <% include ../partials/bs.html %>
-
-    <script>
-        function ArmazenaDadosLogin() {
-            localStorage.setItem('var_name', usuario.nome);
-            localStorage.setItem('var_email', usuario.email);
-
-          /*  alert(var_name);
-              alert(var_email);
-          */  
-
-        }
-    </script>
-
 </head>
 
 <body class="container ">
@@ -31,7 +13,8 @@
 
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron text-center">
-        <h1>Estoque Sucatas</h1>
+        <h1 class="text-center">Estoque Sucatas</h1>
+        <br>
         <p>Gestão Estoque de Sucatas</p>
         <p>
         <a class="btn btn-lg btn-primary" href="/entradasesaidas/" role="button">Entradas & Saídas »</a>
@@ -39,8 +22,5 @@
         </p>
     </div>
    
-    <!-- Rodapé -->
-    <!--    <% include ../partials/rodape.html %> -->
-
 </body>
 </html>
