@@ -70,7 +70,7 @@ CALL ExtratoEstoque(1);
 DROP PROCEDURE ExtratoEstoque;
 
 DELIMITER $$
-CREATE PROCEDURE ExtratoEstoque(IN idProd INT)
+CREATE PROCEDURE ExtratoEstoque(IN idProd INT, IN dataIni DATE, IN dataFim DATE)
 BEGIN
 	
   SET @saldo_qtde  := (SELECT p.saldo_ini_qtde FROM produtos p WHERE p.id = idProd);
@@ -94,13 +94,15 @@ BEGIN
           @preco_medio := ROUND((@saldo_valor / @saldo_qtde),2) as preco_medio
   FROM    entradasesaidas e LEFT JOIN fornecedores f ON (e.id_fornecedor = f.id ) 
                             LEFT JOIN produtos p ON (e.id_produto = p.id )
-  WHERE    (e.id_produto = idProd)
+  WHERE   (e.id_produto = idProd)
+    AND   (e.dt_emissao >= dataIni) 
+    AND   (e.dt_emissao <= dataFim) 
   ORDER BY e.dt_emissao, e.id;
 
 END $$
 DELIMITER ;
 
-CALL ExtratoEstoque(1);
+CALL ExtratoEstoque(1,'2018-04-01','2018-04-30');
 
 
 

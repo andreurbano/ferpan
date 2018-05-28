@@ -43,8 +43,16 @@ module.exports = app => {
     }));
 
     // Rota Listagem de Entradas e Saídas
-    app.get('/entradasesaidas/lista/:idProduto', wrapAsync(async(req, res, next) => {
-        const entradasesaidas = await new EntradaSaidaDao(req.connection).listagem(req.params.idProduto);
+    app.get('/entradasesaidas/lista/:idProduto,:dataMes', wrapAsync(async(req, res, next) => {
+
+        console.log('Passo 2: Cód Produto = ' + req.params.idProduto);
+        console.log('Passo 2: Dt. Mês = '     + req.params.dataMes);
+
+        const dataIni = req.params.dataMes + '-01';
+        const dataFim = req.params.dataMes + '-30';
+
+
+        const entradasesaidas = await new EntradaSaidaDao(req.connection).listagem(req.params.idProduto, dataIni, dataFim);
         // Formata os dados para apresentação
         entradasesaidas.forEach(function(value){
             value.dt_emissao  = moment(value.dt_emissao).format('DD/MM/YYYY');

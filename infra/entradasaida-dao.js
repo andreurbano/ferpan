@@ -14,6 +14,7 @@ class EntradaSaidaDao{
     };
 
     // Lista entradasesaidas
+    /*
     listagem(idProduto) {
         return new Promise((resolve, reject)=>{
             this._connection.query('CALL ExtratoEstoque(' + idProduto +')', (err, entradasesaidas)=>{;
@@ -22,6 +23,24 @@ class EntradaSaidaDao{
             }); 
         });
     };
+    */
+
+    listagem(idProduto, dataIni, dataFim) {
+
+        console.log(idProduto);
+        console.log(dataIni);
+        console.log(dataFim);
+
+        return new Promise((resolve, reject)=>{
+            this._connection.query('CALL ExtratoEstoque(' + idProduto + ',' + '"' +  dataIni + '"' + ',' + '"' + dataFim + '"' + ')', (err, entradasesaidas)=>{;
+                if(err) return reject(err);
+                resolve(entradasesaidas[0]); 
+            }); 
+        });
+    };
+
+
+
 
     // Adiciona entradasaida
     add(entradasaida){
