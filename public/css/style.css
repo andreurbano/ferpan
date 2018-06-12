@@ -137,17 +137,18 @@ body {
 */
 
 .jumbotron {
-  text-align: justify;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .jumbos {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-align: justify;
   margin-top: 70px;
 }
 
 .jumbos h1 {
   font-size: 1.5rem; /*1rem = 16px*/
   margin-top: -10px;
+  
 }
 
 .jumbos p {
@@ -158,11 +159,13 @@ body {
 .jumbo1 {
   color: white;
   background-color: #44BB6E;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .jumbo2 {
   color: white;
   background-color: #58392e;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
