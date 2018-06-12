@@ -27,6 +27,7 @@ app.use(expressValidator());
 app.use(methodOverride('_method'));
 
 // Rotas
+require('./routes/index') (app);
 require('./routes/login') (app);
 require('./routes/home') (app);
 require('./routes/usuarios') (app);

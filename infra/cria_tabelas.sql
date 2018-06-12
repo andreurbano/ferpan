@@ -76,22 +76,22 @@ BEGIN
   SET @saldo_qtde  := (SELECT p.saldo_ini_qtde FROM produtos p WHERE p.id = idProd);
   SET @saldo_valor := (SELECT p.saldo_ini_valor FROM produtos p WHERE p.id = idProd);
   SET @preco_medio := (SELECT p.saldo_ini_preco_medio FROM produtos p WHERE p.id = idProd);
-
+  SET @preco_medio := 0;
+  
   SELECT  e.id,
-          e.dt_emissao, 
-          e.nf_serie, 
-          e.nf_num, 
           e.id_fornecedor,
           e.id_produto,
           e.qtde,
           /*IF(e.tipo = 1, e.valor, e.valor*-1) as qtde,*/
           e.valor, 
           e.tipo, 
-          f.razao_social AS fornecedor, 
+          f.razao_social AS fornecedor,
           IF(e.tipo = 1, "Entrada", "Saída") AS tipoentsai,
           @saldo_qtde := @saldo_qtde + IF(e.tipo = 1, e.qtde, e.qtde*-1) as saldo_qtde,
-          @saldo_valor := @saldo_valor + IF(e.tipo = 1, e.valor, e.valor*-1) as saldo_valor,
-          @preco_medio := ROUND((@saldo_valor / @saldo_qtde),2) as preco_medio
+          /*@saldo_valor := @saldo_valor + IF(e.tipo = 1, e.valor, e.valor*-1) as saldo_valor,*/
+          /*@preco_medio := ROUND((@saldo_valor / @saldo_qtde),2) as preco_medio,*/
+          IF(e.tipo = 1, @saldo_valor := @saldo_valor + IF(e.tipo = 1, e.valor, e.valor*-1), ROUND(@saldo_qtde * @preco_medio,2))  as saldo_valor,
+          @preco_medio := IF(e.tipo = 1, ROUND((@saldo_valor / @saldo_qtde),2), @preco_medio) AS preco_medio
   FROM    entradasesaidas e LEFT JOIN fornecedores f ON (e.id_fornecedor = f.id ) 
                             LEFT JOIN produtos p ON (e.id_produto = p.id )
   WHERE   (e.id_produto = idProd)
