@@ -1,65 +1,3 @@
-.logotipo {
-  position: relative;
-  top: -20px;
-  max-width:215px;
-  max-height:84px;
-  width: auto;
-  height: auto;
-};
-
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  /*font-size: 14px;*/
-  color: #58392e;
-/*  line-height: 1.42857143; */
-  
-}
-
-.jumbotron {
-  text-align: justify;
-  /* border: 1px solid #58392e; */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.jumbos {
-  margin-top: 70px;
-/*  font-size: 90%; */
-}
-
-.jumbos h1 {
-  margin-top: -10px;
-  /*font-size: 120%;*/
-}
-
-.jumbos p {
-/*  font-size: 50%;*/
-  margin-bottom: -10px;
-  
-}
-
-.jumbo1 {
-  color: white;
-  background-color: #44BB6E;
-  
-}
-
-.jumbo2 {
-  color: white;
-  background-color: #58392e;
-}
-
-
-
-
-
-body h4 {
-  color: #58392e;
-/*
-  font-size: 230%;
-  text-align: center;
-*/
-}
-
 .navbar {
   margin: 0 auto;
   /*
@@ -67,10 +5,7 @@ body h4 {
   */
   border-bottom: 1px solid #58392e;
  /*  margin-top: 300px; */
-
 }
-
-  
 
 .navbar-default .navbar-brand {
   color: #f9f9f9;
@@ -85,7 +20,6 @@ body h4 {
   color: #f9f9f9;
 }
 
-
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #ffffff;
@@ -93,13 +27,11 @@ body h4 {
   
 }
 
-
 .navbar-default .navbar-nav > li > a {
   color: white;
   background-color: #44BB6E;
   
 }
-
 
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background-color: #58392e;
@@ -156,8 +88,6 @@ body h4 {
   
 }
 
-
-
 .navbar-default .navbar-toggle {
   background-color: white;
 /*  border: 1px solid #c11829; */
@@ -189,8 +119,53 @@ body h4 {
 Extra small devices (portrait phones, less than 544px) 
 No media query since this is the default in Bootstrap because it is "mobile first"
 */
-.jumbos h1 {font-size:1.5rem;} /*1rem = 16px*/
-.jumbos p {font-size:1.3rem;}
+.logotipo {
+  position: relative;
+  top: -10px;
+  max-width:160px;
+  max-height:74px;
+  width: auto;
+  height: auto;
+};
+
+
+/*
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #58392e;
+}
+*/
+
+.jumbotron {
+  text-align: justify;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbos {
+  margin-top: 70px;
+}
+
+.jumbos h1 {
+  font-size: 1.5rem; /*1rem = 16px*/
+  margin-top: -10px;
+}
+
+.jumbos p {
+  font-size: 1rem;
+  margin-bottom: -10px;
+}
+
+.jumbo1 {
+  color: white;
+  background-color: #44BB6E;
+}
+
+.jumbo2 {
+  color: white;
+  background-color: #58392e;
+}
+
+
 
 /*
 ####################################################
@@ -205,7 +180,7 @@ Bootstrap 4 breakpoints
 /* Small devices (landscape phones, 544px and up) */
 @media screen and (min-width: 544px) {  
   .jumbos h1 {font-size:1.5rem;} /*1rem = 16px*/
-  .jumbos p {font-size:1rem;}
+  .jumbos p {font-size:1.5rem;}
 }
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
