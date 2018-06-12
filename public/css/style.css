@@ -9,7 +9,7 @@
 
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 14px;
+  /*font-size: 14px;*/
   color: #58392e;
 /*  line-height: 1.42857143; */
   
@@ -23,16 +23,16 @@ body {
 
 .jumbos {
   margin-top: 70px;
-  font-size: 90%;
+/*  font-size: 90%; */
 }
 
 .jumbos h1 {
   margin-top: -10px;
-  font-size: 120%;
+  /*font-size: 120%;*/
 }
 
 .jumbos p {
-  font-size: 100%;
+/*  font-size: 50%;*/
   margin-bottom: -10px;
   
 }
@@ -185,8 +185,33 @@ body h4 {
 }
 
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+/* 
+Extra small devices (portrait phones, less than 544px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+.jumbos h1 {font-size:1.5rem;} /*1rem = 16px*/
+.jumbos p {font-size:1.3rem;}
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+/* Small devices (landscape phones, 544px and up) */
+@media screen and (min-width: 544px) {  
+  .jumbos h1 {font-size:1.5rem;} /*1rem = 16px*/
+  .jumbos p {font-size:1rem;}
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media screen and (min-width: 768px) {  
+  .jumbos h1 {font-size:2rem;} /*1rem = 16px*/
+  .jumbos p {font-size:2rem;}
 
   .logotipo {
     top: -5px;
@@ -194,39 +219,29 @@ body h4 {
     max-height:103px;
   };
 
-
   .header {
     margin-top: 30px;
-
   }
-  
   
   .navbar {
     height: 80px;   
   }
 
-
   .navbar-nav {
     margin-top: 12.5px;
     float: right;
-/*    border: 1px solid #58392e;*/
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
-/*
-    color: white;
-    background-color: #128c7e;
-*/    
   }
-  
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #f9f9f9;
-
   }
+
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
   }
+
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
@@ -234,19 +249,51 @@ body h4 {
     background-color: #128c7e;
   }
 
-
   .jumbos {
     margin-top: 110px;
-    font-size: 90%;
+/*    font-size: 90%;*/
   }
-  
+
+ /* 
   .jumbos h1 {
     font-size: 300%;
   }
+*/
 
+/*
   .jumbos p {
     font-size: 150%;
   }
   
+*/
 
+
+
+
+
+
+
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .jumbos h1 {font-size:2.5rem;} /*1rem = 16px*/
+  .jumbos p {font-size:2.5rem;} 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  .jumbos h1 {font-size:3rem;} /*1rem = 16px*/    
+  .jumbos p {font-size:3rem;} 
+}
+ 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+ 
+/* Set width to make card deck cards 100% width */
+@media (min-width: 950px) and (max-width:1100px) { 
+  .jumbos h1 {font-size:2.75rem;color:red;} 
+  .jumbos p {font-size:2.75rem;color:red;} 
 }
