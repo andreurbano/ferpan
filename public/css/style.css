@@ -1,6 +1,6 @@
 .logotipo {
   position: relative;
-  top: -30px;
+  top: -20px;
   max-width:215px;
   max-height:84px;
   width: auto;
@@ -15,16 +15,40 @@ body {
   
 }
 
-
+.jumbotron {
+  text-align: justify;
+  /* border: 1px solid #58392e; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .jumbos {
-  margin-top: 110px;
+  margin-top: 70px;
   font-size: 90%;
 }
 
 .jumbos h1 {
-  font-size: 300%;
+  margin-top: -10px;
+  font-size: 120%;
 }
+
+.jumbos p {
+  font-size: 100%;
+  margin-bottom: -10px;
+  
+}
+
+.jumbo1 {
+  color: white;
+  background-color: #44BB6E;
+  
+}
+
+.jumbo2 {
+  color: white;
+  background-color: #58392e;
+}
+
+
 
 
 
@@ -160,37 +184,17 @@ body h4 {
   color: white;
 }
 
-.jumbotron {
-  color: white;
-  background-color: #44BB6E;
-  
-  text-align: justify;
-/*  border: 1px solid #58392e; */
-  /*box-shadow: 5px 10px #888888;*/
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.jumbo1 {
-  color: white;
-  background-color: #44BB6E;
-  
-}
-
-.jumbo2 {
-  color: white;
-  background-color: #58392e;
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
   .logotipo {
-    top: -10px;
+    top: -5px;
     max-width:223px;
     max-height:103px;
   };
 
-  
+
   .header {
     margin-top: 30px;
 
@@ -229,5 +233,20 @@ body h4 {
     color: #ffffff;
     background-color: #128c7e;
   }
+
+
+  .jumbos {
+    margin-top: 110px;
+    font-size: 90%;
+  }
+  
+  .jumbos h1 {
+    font-size: 300%;
+  }
+
+  .jumbos p {
+    font-size: 150%;
+  }
+  
 
 }
