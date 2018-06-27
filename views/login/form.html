@@ -1,52 +1,111 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
-    <% include ../partials/head.html %>
-    <title>Estoque Ferpan - Login</title>
-  </head>
+      <title>Estoque Ferpan - Login</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="/img/favicon.ico">
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/style.css">
 
-  <body class="container">
+      
+    </head>
 
-    <!-- Cabeçalho-->
-    <header>
-      <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <!-- Logotipo -->
-            <a class="navbar-brand" >
-              Ferpan RJ - Comércio de Metais
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Conteúdo -->
-    <div class="container-fluid">
-
-      <div class="text-center">
-          <h1>Login</h1>
-      </div>
+  <body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top pull-right custom" >
+              <div class="container">
   
-      <form class="form-horizontal" role="form" action="home" method="post"> 
-        <!--Cx. de Texto Email -->
-        <div class="form-group">
-          <label for="inputEmail" class="control-label">Email</label>
-          <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required autofocus>
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+          
+                  <div class="logotipo">
+                      <a class="navbar-brand" href="https://www.ferpan.com.br">
+                        <img class="img-responsive" src="/img/logo_site.png">
+                      </a>
+                  </div>
+  
+  
+                </div>
+  
+                <div id="navbar" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+  <!--
+                    <li><a href="#contact">A empresa</a></li>
+                    <li><a href="#contact">Documetos e Licenças</a></li>
+                    <li><a href="#contact">Serviços</a></li>
+  -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Restrita <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+  
+                      <li><a href="/login/">Rio de Janneiro</a></li>
+                      <li><a href="/login/">Macaé</a></li>
+  
+  <!--
+                        <li><a href="#">Gestão de Resíduos</a></li>
+                        <li><a href="#">Controle de Combustíveis</a></li>
+                        <li><a href="#">Recursos Humanos</a></li>
+  -->
+      <!--
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+      -->                
+  
+                      </ul>
+                    </li>
+                      
+                  </ul>
+                </div><!--/.nav-collapse -->
+  
+              </div>
+  
+            </nav>
+  
+  
+          </header>
+  
+      <!-- Conteúdo -->
+
+      <div class="jumbos">
+
+        <div class="jumbotron jumbo1">
+            <h1>Login</h1>
+
+
+            <div class="container-fluid">
+
+                <form class="form-horizontal" role="form" action="home" method="post"> 
+                  <!--Cx. de Texto Email -->
+                  <div class="form-group">
+                    <label for="inputEmail" class="control-label">Email</label>
+                    <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required autofocus>
+                  </div>
+                  <!--Cx. de Texto Senha -->
+                  <div class="form-group">
+                    <label for="inputPassword" class="control-label">Senha</label>
+                    <input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Senha" required autofocus>
+                  </div>
+                  <!-- Botão Entrar -->
+                  <div class="form-group">
+                    <input type="submit" class="btn btn-success btn-xs" value="Entrar">
+                  </div>
+                </form>
+        
+              </div>
         </div>
-        <!--Cx. de Texto Senha -->
-        <div class="form-group">
-          <label for="inputPassword" class="control-label">Senha</label>
-          <input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Senha" required autofocus>
-        </div>
-        <!-- Botão Entrar -->
-        <div class="form-group">
-          <input type="submit" class="btn btn-success btn-xs" value="Entrar">
-        </div>
-      </form>
+
+      </div>
 
     </div>
-
   </body>
 </html>
