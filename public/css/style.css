@@ -10,30 +10,19 @@
   background-color: #44BB6E;
   color: #58392e;
 */
-
-
   /* Transparência */
   filter:opacity(alpha=60);
   -moz-opacity:0.3;
   opacity:0.3;
 }
 
-
 .navbar {
   margin: 0 auto;
-  /*
-  align-content: center;
-  */
   border-bottom: 1px solid #58392e;
- /*  margin-top: 300px; */
-
   /* Transparência */
   filter:opacity(alpha=60);
   -moz-opacity:0.9;
   opacity:0.9;
-
-
-
 }
 
 .navbar-default .navbar-brand {
@@ -157,20 +146,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   height: auto;
 };
 
-
-/*
-body {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #58392e;
-}
-*/
-
-.jumbos {
-  margin-top: 70px;
-}
-
 .jumbotron {
-  text-align: justify;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -202,6 +178,11 @@ body {
   color: white;
   background-color: #58392e;
 }
+
+.jumbos {
+  margin-top: 70px;
+}
+
 
 
 .btn-success{
@@ -260,23 +241,9 @@ body {
 }
 
 .botoes-acoes{
-/*
-  color: white;
-  background-color: #44BB6E;
-*/
   background-color: #128c7e;
   border-color: #58392e;
-
-
-
-  /* Sombra do botão */
-  /*
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: none;
-  */
-
 }
-
 
 table {
   border-collapse: collapse;
@@ -302,6 +269,8 @@ tr:hover {
     font-style: italic;
   */
   font-weight: bold;
+
+
 }
 thead tr:hover {
   background-color: transparent;
@@ -374,22 +343,24 @@ Bootstrap 4 breakpoints
   .jumbos h1 {font-size:2rem;} /*1rem = 16px*/
   .jumbos p {font-size:2rem;}
 
+
+  .jumbos {
+    margin-top: 80px;
+  }
+  
+
   .logotipo {
-    top: -5px;
+    top: -14px;
     max-width:223px;
     max-height:103px;
   };
 
-  .header {
-    margin-top: 30px;
-  }
-  
   .navbar {
     height: 80px;   
   }
 
   .navbar-nav {
-    margin-top: 12.5px;
+    margin-top: 10px;
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
@@ -409,30 +380,6 @@ Bootstrap 4 breakpoints
     color: #ffffff;
     background-color: #128c7e;
   }
-
-  .jumbos {
-    margin-top: 110px;
-/*    font-size: 90%;*/
-  }
-
- /* 
-  .jumbos h1 {
-    font-size: 300%;
-  }
-*/
-
-/*
-  .jumbos p {
-    font-size: 150%;
-  }
-  
-*/
-
-
-
-
-
-
 
 }
  
