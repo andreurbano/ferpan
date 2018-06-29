@@ -7,45 +7,56 @@
     <title>Ramos de Atividades</title>
 </head>
 
-<body class="container">
-    <!-- Define a action -->
-    <%
-        let action='/ramosdeatividades';
-        if(ramodeatividade.id){
-            action='/ramosdeatividades/' + ramodeatividade.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Define a action -->
+        <%
+            let action='/ramosdeatividades';
+            if(ramodeatividade.id){
+                action='/ramosdeatividades/' + ramodeatividade.id + '?_method=PUT';
+            }
+        %>
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-        <h1>Ramos de Atividades</h1>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
 
-        <!-- Validação dos campos -->
-        <% include ../partials/erros-validacao.html %>
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+                <h1>Ramos de Atividades</h1>
 
-            <!-- Campo Sigla -->
-            <div class="form-group container">
-                <%if(ramodeatividade.id){%>
-                    <input type="hidden" name="id" value="<%=ramodeatividade.id%>">
-                <%}%>
-                <label for="inputdescricao" class="control-label">Descrição</label>
-                <div>
-                    <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=ramodeatividade.descricao%>">
-                </div>
+                <!-- Validação dos campos -->
+                <% include ../partials/erros-validacao.html %>
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        
+                    <!-- Campo Sigla -->
+                    <div class="form-group container">
+                        <%if(ramodeatividade.id){%>
+                            <input type="hidden" name="id" value="<%=ramodeatividade.id%>">
+                        <%}%>
+                        <label for="inputdescricao" class="control-label">Descrição</label>
+                        <div>
+                            <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=ramodeatividade.descricao%>">
+                        </div>
+                    </div>
+        
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-lg botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
+                    </div>
+                            
+                </form>
+            
             </div>
-
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
-            </div>
-                    
-        </form>
+        </div>
     
-    </div>   
+
+
+
+    </div>
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
+
 </body>
 
 </html>

@@ -21,10 +21,9 @@ var numeral = require('numeral');
 // 
 module.exports = app => {
 
-
-    // Rota chama formulário da página inicial - inicio.html
+    // Rota chama formulário da página de saldos - saldo.html
     // Lista saldos dos produtos
-    app.get('/home/inicio', wrapAsync(async(req, res, next) => {
+    app.get('/home/saldo', wrapAsync(async(req, res, next) => {
         var produtos = await new ProdutoDao(req.connection).listaSaldoProdutos();
 
         // Formata a data
@@ -37,18 +36,21 @@ module.exports = app => {
             value.nf_num = numeral(value.nf_num).format('0000000000');
             value.qtde = numeral(value.qtde).format('0,0.00');;
             value.valor = numeral(value.valor).format('$0,0.00');;
-
-
         });
 
-       
         // Retorna o dataset
         res.format({
-            html: () => res.render('home/inicio', {produtos}), // Retorno em HTML
+            html: () => res.render('home/saldo', {produtos}), // Retorno em HTML
             json: () => res.json(produtos) // Retorna Json 
         });
                 
     }));
+
+
+    // Rota chama formulário da página inicial - inicio.html
+    app.get('/home/inicio', function (req, res) {
+        res.render('home/inicio', { });
+    });
 
 
     // Rota Chama o formulário verificando usuário e senha

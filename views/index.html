@@ -1,143 +1,50 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Ferpan</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <title>Ferpan</title>
+  <!-- Head -->
+  <% include partials/head.html %>
 </head>
 
 <body>
-    <div class="container">
+  <div class="container">
 
-        <header>
-          <nav class="navbar navbar-default navbar-fixed-top pull-right custom" >
-            <div class="container">
+    <!-- Cabeçalho -->
+    <% include partials/cabec_v01.html %>
 
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-               
-                
-                window.location.protocol + "//" + window.location.host + "/fornecedores"
+    <div class="jumbos">
 
-                <div class="logotipo">
-                    <script>window.location.protocol + "//" + window.location.host</script>
-                    <!-- <a class="navbar-brand" href="https://www.ferpan.com.br"> -->
-                    <a class="navbar-brand" href="https://www.ferpan.com.br">
-                      <img class="img-responsive" src="img/logo_site.png">
-                    </a>
-                </div>
+      <div class="jumbotron jumboVerde">
+        <h1>Gerenciamento de Resíduos &bull; Macaé</h1>
+        <br>
+        <p>
+          A Ferpan, acompanhando o desenvolvimento dos modelos de gerenciamento
+          ambiental necessários ao desenvolvimento das Políticas de QSMS das empresas,
+          as quais exigem políticas específicas para o gerenciamento de resíduos, oferece
+          um trabalho sério, fundamentado no respeito ao ser humano, e no cumprimento à
+          legislação vigente. Trabalho este, que serve como ferramenta essencial na
+          execução de programas de gestão de resíduos.
+      </div>
 
+      <div class="jumbotron jumboMarrom">
+        <h1 >Comércio de Metais &bull; Rio de Janeiro</h1>
+        <br>
+        <p >
+          Nossa empresa que se encontra no mercado desde 1971, possui sua
+          sede na Av. Brasil, no bairro de Realengo, no Rio de Janeiro, atuando no ramo de
+          comércio de metais, trabalhando entre outras, com empresas voltadas para a
+          exploração e prospecção de petróleo.
+        </p>
+      </div>
 
-              </div>
-
-              <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-<!--
-                  <li><a href="#contact">A empresa</a></li>
-                  <li><a href="#contact">Documetos e Licenças</a></li>
-                  <li><a href="#contact">Serviços</a></li>
--->
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Restrita <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-
-                    <li><a href="/login/">Rio de Janneiro</a></li>
-                    <li><a href="/login/">Macaé</a></li>
-
-<!--
-                      <li><a href="#">Gestão de Resíduos</a></li>
-                      <li><a href="#">Controle de Combustíveis</a></li>
-                      <li><a href="#">Recursos Humanos</a></li>
--->
-    <!--
-                      <li role="separator" class="divider"></li>
-                      <li class="dropdown-header">Nav header</li>
-                      <li><a href="#">Separated link</a></li>
-                      <li><a href="#">One more separated link</a></li>
-    -->                
-
-                    </ul>
-                  </li>
-                    
-                </ul>
-              </div><!--/.nav-collapse -->
-
-            </div>
-
-          </nav>
-
-
-        </header>
-
-        <div class="jumbos">
-
-          <div class="jumbotron jumbo1">
-            <h1>Gerenciamento de Resíduos &bull; Macaé</h1>
-            <p>
-              A Ferpan, acompanhando o desenvolvimento dos modelos de gerenciamento
-              ambiental necessários ao desenvolvimento das Políticas de QSMS das empresas,
-              as quais exigem políticas específicas para o gerenciamento de resíduos, oferece
-              um trabalho sério, fundamentado no respeito ao ser humano, e no cumprimento à
-              legislação vigente. Trabalho este, que serve como ferramenta essencial na
-              execução de programas de gestão de resíduos.
-<!--
-              <br>
-              <br>
-              Rua Professor Rodolpho David Gomes, 180 &bull; Novo Cavaleiros &bull; Macaé &bull; RJ &bull; 27930-470 &bull; (22)2796-2100 &bull; contato@ferpan.com.br
-            </p>
-          -->
-          <!--
-            <p><a class="btn btn-lg btn-warning" href="#" role="button">Saiba mais &raquo;</a></p>
-          -->
-          </div>
-  
-          <div class="jumbotron jumbo2">
-            <h1 >Comércio de Metais &bull; Rio de Janeiro</h1>
-            <p >
-                Nossa empresa que se encontra no mercado desde 1971, possui sua
-                sede na Av. Brasil, no bairro de Realengo, no Rio de Janeiro, atuando no ramo de
-                comércio de metais, trabalhando entre outras, com empresas voltadas para a
-                exploração e prospecção de petróleo.
-<!--
-                Avenida Brasil, 30777 &bull; Realengo &bull; Rio de Janeiro &bull; RJ &bull; 21720-001 &bull; (21)2401-9505 &bull; contato@ferpan.com.br
--->
-            </p>
-            <!--
-            <p><a class="btn btn-lg btn-warning" href="#" role="button">Saiba mais &raquo;</a></p>
-            -->
-          </div>
-  
-        </div>
     </div>
 
 
-    <nav class="fixed-bottom navbar-light bg-faded navbar-fixed-bottom">
+  </div>
 
-      <footer id="myFooter" class="footer">
-        <div class="footer-copyright">
-            <p>© 2018 - Desenvolvido por SistemasLivres.com.br </p>
-        </div>
-      </footer>
+  <!-- Rodapé -->
+  <% include partials/rodape_v01.html %>
 
-    </nav> 
-
-    <!-- BEGIN JIVOSITE CODE {literal} -->
-    <script type='text/javascript'>
-    (function(){ var widget_id = '4h80HMeYIi';
-    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);})();</script>
-    <!-- {/literal} END JIVOSITE CODE -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>

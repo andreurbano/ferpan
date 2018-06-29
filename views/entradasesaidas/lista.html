@@ -43,43 +43,57 @@
     </script>
 
 </head>
-<body class="container">
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-    <!-- Cabeçalho -->
-    <% include ../partials/cabecalho.html %>
+        <!-- Conteúdo -->
+        <div class="jumbos">
 
-    <h1 class="container text-center">Entradas & Saídas</h1>
+            <div class="jumbotron">
 
-    <div class="row">
 
-        <!-- Lookup Produtos -->
-        <div class="col-xs-6 form-group">
-            <label class="control-label" for="idProduto">Produto</label>
-            <div>
-                <select class="form-control selectpicker show-tick" id="idProduto" name="idProduto" required onchange="buscaEntradaSaida(this.value, dataMes.value)"></select>
+                <h1 class="container text-center">Entradas & Saídas</h1>
+
+                <div class="row">
+            
+                    <!-- Lookup Produtos -->
+                    <div class="col-xs-6 form-group">
+                        <label class="control-label" for="idProduto">Produto</label>
+                        <div>
+                            <select class="form-control selectpicker show-tick" id="idProduto" name="idProduto" required onchange="buscaEntradaSaida(this.value, dataMes.value)"></select>
+                        </div>
+                        <script>
+                            //PreencheProduto('#prod', prod.value);
+                            PreencheProduto('#idProduto', 1);
+                            OrdenaElementoSelect('#idProduto');
+                        </script>
+                    </div>
+            
+                    <!-- Campo Data Mês -->
+                    <div class="col-xs-6 form-group">
+                        <label for="dataMes" class="control-label">Mês</label>
+                        <div>
+                            <input type="month" id="dataMes" class="form-control" name="dataMes" value="<%= new Date(Date.now()).toISOString().substring(0, 7)%>" onchange="buscaEntradaSaida(idProduto.value, this.value)">
+                        </div>
+                    </div>
+            
+                </div>
+            
+                <!-- Tabela -->
+                <div id="txtHint"></div>
+            
+                <!-- Botão incluir -->
+                <a href="/entradasesaidas/form" class="btn btn-xs btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
+                
+
+
             </div>
-            <script>
-                //PreencheProduto('#prod', prod.value);
-                PreencheProduto('#idProduto', 1);
-                OrdenaElementoSelect('#idProduto');
-            </script>
-        </div>
 
-        <!-- Campo Data Mês -->
-        <div class="col-xs-6 form-group">
-            <label for="dataMes" class="control-label">Mês</label>
-            <div>
-                <input type="month" id="dataMes" class="form-control" name="dataMes" value="<%= new Date(Date.now()).toISOString().substring(0, 7)%>" onchange="buscaEntradaSaida(idProduto.value, this.value)">
-            </div>
         </div>
 
     </div>
-
-    <!-- Tabela -->
-    <div id="txtHint"></div>
-
-    <!-- Botão incluir -->
-    <a href="/entradasesaidas/form" class="btn btn-xs btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
 
  <script src="/socket.io/socket.io.js"></script>  
  
@@ -164,6 +178,8 @@
     buscaEntradaSaida(1, dataMes.value);
 </script>
 
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
 
 </body>
 </html>

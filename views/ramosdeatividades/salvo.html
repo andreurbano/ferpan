@@ -5,21 +5,29 @@
     <% include ../partials/head.html %>
     <title>Ramo de Atividade Salvo com Sucesso!</title>
 </head>
-<body class="container">
-    <% include ../partials/cabecalho.html %>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-    <!-- Conteúdo -->
-    <div>
-            
-        <!-- Título -->
-        <h1 class="container text-center">Ramo de Atividade Salvo com Sucesso!</h1>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
 
-        <div class="container text-center">
-            <a href="/ramosdeatividades" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Ramos de Atividades</a>
-            <a href="/ramosdeatividades/form" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+                <!-- Título -->
+                <h1 class="container text-center">Ramo de Atividade Salvo com Sucesso!</h1>
+
+                <div class="container text-center">
+                    <a href="/ramosdeatividades" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Ramos de Atividades</a>
+                    <a href="/ramosdeatividades/form" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+                </div>
+
+            </div>
         </div>
-
+    
     </div>
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
     
 </body>
 </html>

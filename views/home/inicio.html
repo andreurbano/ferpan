@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
+    <!-- Head -->
     <% include ../partials/head.html %>
-
-    <title>Produtos</title>
-
+    <title>Ferpan RJ - Controle de Estoque</title>
 </head>
-<body class="container">
-    <!-- Cabeçalho -->
-    <% include ../partials/cabecalho.html %>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-    <!-- Conteúdo -->
-    <div class="container ">
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <!-- -->
+            <div class="jumbotron jumboVerde TextoCenter">
+                <h1>Estoque Sucatas</h1>
+                <br>
+                <p>
+                <a class="btn btn-lg btn-success" href="/entradasesaidas/" role="button">Entradas & Saídas »</a>
+                <a class="btn btn-lg btn-success" href="/home/saldo" role="button">Saldos »</a>
+                </p>
+            </div>
 
-        <h1>Saldos</h1>
+            <!--
+            <div class="jumbotron jumboMarrom TextoCenter">
+                <h1>Gestão de NF-e</h1>
+                <p>
+                <a class="btn btn-lg btn-success" href="/entradasesaidas/" role="button">Saídas »</a>
+                <a class="btn btn-lg btn-success" href="/home/saldo" role="button">Entradas »</a>
+                </p>
+            </div>
+            -->
 
-        <div class="table-responsive tabela">
-            <table class='table table-sm hover table-hover table-bordered table-striped'>    
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Material</th>
-                        <th scope="col" class="text-center">Data</th>
-                        <th scope="col" class="text-right">Qtde.</th>
-                        <th scope="col">Unid. Med.</th>
-                        <th scope="col" class="text-right">Valor</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <% for(produto of produtos) { %>
-                        <tr>
-                            <td><%= produto.descricao %></td>
-                            <td class="text-center"><%= produto.saldo_atu_dt %></td>
-                            <td class="text-right"><%= produto.saldo_atu_qtde %></td>
-                            <td><%= produto.Sigla %></td>
-                            <td class="text-right"><%= produto.saldo_atu_valor %></td> 
-                        </tr>
-                    <%}%>
-
-                </tbody>
-            </table>
+            
 
         </div>
 
     </div>
 
-
- <script src="/socket.io/socket.io.js"></script>  
- 
- <script>
-     const socket = io();
-     socket.on('novoProduto', produto => {
-         console.log(produto.id);
-
-         const template = `
-            <tr>
-
-                <td>${produto.descricao}</td>
-                <td>${produto.saldo_atu_dt}</td>
-                <td>${produto.saldo_atu_qtde}</td>
-                <td>${produto.Sigla}</td>
-                <td>${produto.saldo_atu_valor}</td> 
-
-            </tr>
-         `;
-         document.querySelector('table').insertAdjacentHTML('beforeend', template);
-
-     })
- </script>
-
- <script>
-
-    (() => {
-
-        const headers = new Headers();
-        headers.append('Accept','application/json');
-
-        fetch('/produtos', {headers})
-        .then(res => res.json())
-        .then(produtos => console.log(produtos));
-
-
-    })();
-
- </script>
-
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
+   
 </body>
 </html>

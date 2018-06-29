@@ -11,8 +11,17 @@
           </button>
   
           <div class="logotipo">
-              <a class="navbar-brand" href="https://www.ferpan.com.br">
-                <img class="img-responsive" src="img/logo_site.png">
+              <a id="url_principal" class="navbar-brand" href="https://www.ferpan.com.br">
+                <script>
+                  var a = document.getElementById('url_principal');
+                  a.href = window.location.protocol + "//" + window.location.host + "/";
+                </script>
+
+                <img id="logo_principal" class="img-responsive" src="/img/logo_site.png">
+                <script>
+                  var img = document.getElementById('logo_principal');
+                  img.src = window.location.protocol + "//" + window.location.host + "/img/logo_site.png";
+                </script>
               </a>
           </div>
 
@@ -21,8 +30,16 @@
 
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+
+            <li>
+              <a id="url_aempresa" href="https://www.ferpan.com.br">A empresa
+                  <script>
+                    var a = document.getElementById('url_aempresa');
+                    a.href = window.location.protocol + "//" + window.location.host + "/";
+                  </script>
+              </a>
+            </li>
 <!--
-            <li><a href="#contact">A empresa</a></li>
             <li><a href="#contact">Documetos e Licenças</a></li>
             <li><a href="#contact">Serviços</a></li>
 -->
@@ -51,8 +68,8 @@
           </ul>
         </div><!--/.nav-collapse -->
 
-      </div>
+    </div>
 
-    </nav>
+  </nav>
 
 </header>

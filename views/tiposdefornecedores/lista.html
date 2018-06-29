@@ -7,45 +7,50 @@
     <title>Tipos de Fornecedores</title>
 </head>
 
-<body class="container">
-    <!-- Cabeçalho -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-        <h1>Tipos de Fornecedores</h1>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron">
 
-        <a href="/tiposdefornecedores/form" class="btn btn-sm btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
+                <h1>Tipos de Fornecedores</h1>
 
-        <div class="table-responsive tabela">
-            <table class='table table-sm hover table-hover table-bordered table-striped'>    
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Descrição</th>
-                        <th scope="col" class="text-center">Ação</th>
-                    </tr>
-                </thead>
+                <a href="/tiposdefornecedores/form" class="btn btn-sm btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
+        
+                <div class="table-responsive tabela">
+                    <table class='table table-sm hover table-hover table-bordered table-striped'>    
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Descrição</th>
+                                <th scope="col" class="text-center">Ação</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+        
+                            <% for(tipodefornecedor of tiposdefornecedores) { %>
+                                <tr>
+                                    <td><%= tipodefornecedor.descricao %></td>
+        
+                                    <td class="text-center">
+                                        <form method="POST" action="/tiposdefornecedores/<%=tipodefornecedor.id%>?_method=DELETE">
+                                            <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <a href="/tiposdefornecedores/form/<%=tipodefornecedor.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        </form>
+                                    </td>
+                                </tr>
+                    
+                            <%}%>
+        
+                        </tbody>
+                    </table>
+        
+                </div>
 
-                <tbody>
-
-                    <% for(tipodefornecedor of tiposdefornecedores) { %>
-                        <tr>
-                            <td><%= tipodefornecedor.descricao %></td>
-
-                            <td class="text-center">
-                                <form method="POST" action="/tiposdefornecedores/<%=tipodefornecedor.id%>?_method=DELETE">
-                                    <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
-                                    <a href="/tiposdefornecedores/form/<%=tipodefornecedor.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
-                                </form>
-                            </td>
-                        </tr>
-            
-                    <%}%>
-
-                </tbody>
-            </table>
-
+            </div>
         </div>
 
     </div>
@@ -93,6 +98,8 @@
 
  </script>
 
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
 
 </body>
 </html>

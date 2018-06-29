@@ -93,122 +93,124 @@
 
 </head>
 
-<body class="container">
-    <!-- Define a action -->
-    <%
-        let action='/entradasesaidas';
-        if(entradasaida.id){
-            action='/entradasesaidas/' + entradasaida.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Define a action -->
+        <%
+            let action='/entradasesaidas';
+            if(entradasaida.id){
+                action='/entradasesaidas/' + entradasaida.id + '?_method=PUT';
+            }
+        %>
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
+
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron">
+
+                <h1>Entradas & Saídas</h1>
+
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
         
-        <h1>Entradas & Saídas</h1>
-
-        <!-- Título -->
-        <!--
-        <h1 class="container text-center">Entradas & Saídas</h1>
-        -->
-
-
-
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
-
-            <!-- Campo Id e Dt. Emissão -->
-            <div class="form-group container">
-                <!-- Campo Id -->
-                <%if(entradasaida.id){%>
-                    <input type="hidden" name="id" value="<%=entradasaida.id%>">
-                <%}%>
-                <!-- Campo Dt. Emissão -->
-                <label for="inputdt_emissao" class="control-label">Dt. Emissão</label>
-                <div>
-                    <input class="form-control" id="date" type="date" value="<%=entradasaida.dt_emissao%>" name="dt_emissao" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
-                </div>
-            </div>
-
-
-            <!-- Campo NF Série -->
-            <div class="form-group container">
-                <label for="inputnf_serie" class="control-label">NF Série</label>
-                <div>
-                    <input type="number" id="inputnf_serie" class="form-control" name="nf_serie" placeholder="000" autofocus value="<%=entradasaida.nf_serie%>"data-error="Por favor, informe a Série da NFe correta." required>
-                </div>
-            </div>
-
-            <!-- Campo NF Nº -->
-            <div class="form-group container">
-                <label for="inputnf_num" class="control-label">NF Nº</label>
-                <div>
-                    <input type="number" id="inputnf_num" class="form-control" name="nf_num" placeholder="0000000000" autofocus value="<%=entradasaida.nf_num%>" required>
-                </div>
-            </div>
-
-            <!-- Lookup Fornecedores -->
-            <div class="form-group container">
-                <label class="control-label" for="id_fornecedor">Fornecedor</label>
-                <div>
-                    <select class="form-control selectpicker show-tick" id="id_fornecedor" name="id_fornecedor" required></select>
-                </div>
-                <script>
-                    PreencheFornecedor('#id_fornecedor', '<%=entradasaida.id_fornecedor%>');
-                    OrdenaElementoSelect('#id_fornecedor');
-                </script>
-            </div>
+                    <!-- Campo Id e Dt. Emissão -->
+                    <div class="form-group container">
+                        <!-- Campo Id -->
+                        <%if(entradasaida.id){%>
+                            <input type="hidden" name="id" value="<%=entradasaida.id%>">
+                        <%}%>
+                        <!-- Campo Dt. Emissão -->
+                        <label for="inputdt_emissao" class="control-label">Dt. Emissão</label>
+                        <div>
+                            <input class="form-control" id="date" type="date" value="<%=entradasaida.dt_emissao%>" name="dt_emissao" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
+                        </div>
+                    </div>
+        
+        
+                    <!-- Campo NF Série -->
+                    <div class="form-group container">
+                        <label for="inputnf_serie" class="control-label">NF Série</label>
+                        <div>
+                            <input type="number" id="inputnf_serie" class="form-control" name="nf_serie" placeholder="000" autofocus value="<%=entradasaida.nf_serie%>"data-error="Por favor, informe a Série da NFe correta." required>
+                        </div>
+                    </div>
+        
+                    <!-- Campo NF Nº -->
+                    <div class="form-group container">
+                        <label for="inputnf_num" class="control-label">NF Nº</label>
+                        <div>
+                            <input type="number" id="inputnf_num" class="form-control" name="nf_num" placeholder="0000000000" autofocus value="<%=entradasaida.nf_num%>" required>
+                        </div>
+                    </div>
+        
+                    <!-- Lookup Fornecedores -->
+                    <div class="form-group container">
+                        <label class="control-label" for="id_fornecedor">Fornecedor</label>
+                        <div>
+                            <select class="form-control selectpicker show-tick" id="id_fornecedor" name="id_fornecedor" required></select>
+                        </div>
+                        <script>
+                            PreencheFornecedor('#id_fornecedor', '<%=entradasaida.id_fornecedor%>');
+                            OrdenaElementoSelect('#id_fornecedor');
+                        </script>
+                    </div>
+                        
+                    <!-- Lookup Produtos -->
+                    <div class="form-group container">
+                            <label class="control-label" for="prod">Produto</label>
+                            <div>
+                                <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required></select>
+                            </div>
+                            <script>
+                                PreencheProduto('#prod', '<%=entradasaida.id_produto%>');
+                                OrdenaElementoSelect('#prod');
+                            </script>
+                        </div>
                 
-            <!-- Lookup Produtos -->
-            <div class="form-group container">
-                    <label class="control-label" for="prod">Produto</label>
-                    <div>
-                        <select class="form-control selectpicker show-tick" id="prod" name="id_produto" required></select>
+                    <!-- Campo Quantidade -->
+                    <div class="form-group container">
+                        <label for="qtde" class="control-label">Quantidade</label>
+                        <div>
+                            <input type="number" step="0.01" id="qtde" class="form-control" name="qtde" placeholder="0.00" autofocus value="<%=entradasaida.qtde%>" required>
+                        </div>
                     </div>
-                    <script>
-                        PreencheProduto('#prod', '<%=entradasaida.id_produto%>');
-                        OrdenaElementoSelect('#prod');
-                    </script>
-                </div>
+            
+                    <!-- Campo Valor -->
+                    <div class="form-group container">
+                        <label for="valor" class="control-label">Valor</label>
+                        <div>
+                            <input type="number" step="0.01" id="valor" class="form-control" name="valor" placeholder="0.00" autofocus value="<%=entradasaida.valor%>" required>
+                        </div>
+                    </div>
         
-            <!-- Campo Quantidade -->
-            <div class="form-group container">
-                <label for="qtde" class="control-label">Quantidade</label>
-                <div>
-                    <input type="number" step="0.01" id="qtde" class="form-control" name="qtde" placeholder="0.00" autofocus value="<%=entradasaida.qtde%>" required>
-                </div>
-            </div>
-    
-            <!-- Campo Valor -->
-            <div class="form-group container">
-                <label for="valor" class="control-label">Valor</label>
-                <div>
-                    <input type="number" step="0.01" id="valor" class="form-control" name="valor" placeholder="0.00" autofocus value="<%=entradasaida.valor%>" required>
-                </div>
-            </div>
-
-            <!-- Lookup Tipo Entrada ou Saída -->
-            <div class="form-group container">
-                    <label class="control-label" for="tipo">Tipo</label>
-                    <div>
-                        <select class="form-control selectpicker show-tick" id="tipo" name="tipo" required></select>
+                    <!-- Lookup Tipo Entrada ou Saída -->
+                    <div class="form-group container">
+                            <label class="control-label" for="tipo">Tipo</label>
+                            <div>
+                                <select class="form-control selectpicker show-tick" id="tipo" name="tipo" required></select>
+                            </div>
+                            <script>
+                                PreencheTipo('#tipo', '<%=entradasaida.tipo%>');
+                                OrdenaElementoSelect('#tipo');
+                            </script>
+                        </div>
+        
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-xs botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
                     </div>
-                    <script>
-                        PreencheTipo('#tipo', '<%=entradasaida.tipo%>');
-                        OrdenaElementoSelect('#tipo');
-                    </script>
-                </div>
+        
+                </form>
 
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-xs botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
+
             </div>
-
-        </form>
+        </div>
     
     </div>
 
+
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
 </body>
 
 </html>

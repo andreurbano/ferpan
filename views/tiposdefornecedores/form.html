@@ -7,46 +7,54 @@
     <title>Tipos de Fornecedores</title>
 </head>
 
-<body class="container">
-    <!-- Define a action -->
-    <%
-        let action='/tiposdefornecedores';
-        if(tipodefornecedor.id){
-            action='/tiposdefornecedores/' + tipodefornecedor.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Define a action -->
+        <%
+            let action='/tiposdefornecedores';
+            if(tipodefornecedor.id){
+                action='/tiposdefornecedores/' + tipodefornecedor.id + '?_method=PUT';
+            }
+        %>
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-        <h1>Tipos de Fornecedores</h1>
 
-        <!-- Validação dos campos -->
-        <% include ../partials/erros-validacao.html %>
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron">
 
-            <!-- Campo Sigla -->
-            <div class="form-group container">
-                <%if(tipodefornecedor.id){%>
-                    <input type="hidden" name="id" value="<%=tipodefornecedor.id%>">
-                <%}%>
-                <label for="inputdescricao" class="control-label">Descrição</label>
-                <div>
-                    <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=tipodefornecedor.descricao%>">
-                </div>
+                <h1>Tipos de Fornecedores</h1>
+
+                <!-- Validação dos campos -->
+                <% include ../partials/erros-validacao.html %>
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        
+                    <!-- Campo Sigla -->
+                    <div class="form-group container">
+                        <%if(tipodefornecedor.id){%>
+                            <input type="hidden" name="id" value="<%=tipodefornecedor.id%>">
+                        <%}%>
+                        <label for="inputdescricao" class="control-label">Descrição</label>
+                        <div>
+                            <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=tipodefornecedor.descricao%>">
+                        </div>
+                    </div>
+        
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
+                    </div>
+                            
+                </form>
+            
             </div>
-
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
-            </div>
-                    
-        </form>
-        <!-- Rodapé -->
+        </div>
     
-    </div>   
+    </div>
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
+
 </body>
 
 </html>

@@ -7,19 +7,28 @@
     <title>Ferpan RJ - Controle de Estoque</title>
 </head>
 
-<body class="container">
-    <!-- Cabeçalho -->
-    <% include ../partials/cabecalho.html %>
+<body>
+    <div class="container">
 
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron text-center">
-        <h1>Estoque Sucatas</h1>
-        <p>Gestão Estoque de Sucatas</p>
-        <p>
-        <a class="btn btn-lg btn-primary" href="/entradasesaidas/" role="button">Entradas & Saídas »</a>
-        <a class="btn btn-lg btn-primary" href="/home/inicio" role="button">Saldos »</a>
-        </p>
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
+
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <!-- Main component for a primary marketing message or call to action -->
+            <div class="jumbotron jumboVerde TextoCenter">
+                <h1>Estoque Sucatas</h1>
+                <p>
+                <a class="btn btn-lg btn-success" href="/entradasesaidas/" role="button">Entradas & Saídas »</a>
+                <a class="btn btn-lg btn-success" href="/home/saldo" role="button">Saldos »</a>
+                </p>
+            </div>
+        </div>
+
     </div>
+
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v01.html %>
    
 </body>
 </html>
