@@ -1,112 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
     <title>Usuários</title>
 </head>
-
-<body class="container">
-    <!-- Cabeçalho -->
-     <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
-
-        <h1>Usuários</h1>
-
-        <a href="/usuarios/form" class="btn btn-xs btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
-    
-        <div class="table-responsive tabela">
-            <table class='table table-sm hover table-hover table-bordered table-striped'>
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Nome</th>
-    <!--
-                        <th scope="col">E-mail</th>
-                        <th scope="col">Usuário</th>
-                        <th scope="col">Senha</th>
-    -->
-                        <th scope="col" class="text-center">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for(usuario of usuarios) { %>
-        
-                        <tr>
-                            <td nowrap><%= usuario.nome %></td>
-    <!--   
-                            <td><%= usuario.email %></td>
-                            <td><%= usuario.username %></td>
-                            <td><%= usuario.pass %></td>
-    -->
-                            <td class="text-center">
-                                <form method="POST" action="/usuarios/<%=usuario.id%>?_method=DELETE">
-                                    <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
-                                    <a href="/usuarios/form/<%=usuario.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
-                                </form>
-        
-                            </td>
-        
-                        </tr>
-        
-                    <%}%>
-                </tbody>        
-            </table>
-        <div>        
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
+                <h1>Usuários</h1>
+                <a href="/usuarios/form" class="btn btn-lg btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
+            
+                <div class="table-responsive tabela">
+                    <table class='table table-sm hover table-hover table-bordered table-striped'>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nome</th>
+            <!--
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Senha</th>
+            -->
+                                <th scope="col" class="text-center">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(usuario of usuarios) { %>
+                
+                                <tr>
+                                    <td nowrap><%= usuario.nome %></td>
+            <!--   
+                                    <td><%= usuario.email %></td>
+                                    <td><%= usuario.username %></td>
+                                    <td><%= usuario.pass %></td>
+            -->
+                                    <td class="text-center">
+                                        <form method="POST" action="/usuarios/<%=usuario.id%>?_method=DELETE">
+                                            <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <a href="/usuarios/form/<%=usuario.id%>" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                                        </form>
+                
+                                    </td>
+                
+                                </tr>
+                
+                            <%}%>
+                        </tbody>        
+                    </table>
+                <div>        
+            </div>
+        </div>
 
     </div>
     <!-- Fim Conteúdo -->
 
-
-
- <script src="/socket.io/socket.io.js"></script>  
+    <script src="/socket.io/socket.io.js"></script>  
  
- <script>
-     const socket = io();
-     socket.on('novoUsuario', usuario => {
-         console.log(usuario);
+    <script>
+        const socket = io();
+        socket.on('novoUsuario', usuario => {
+            console.log(usuario);
 
-         const template = `
-            <tr>
+            const template = `
+                <tr>
 
-                <td>${usuario.nome}</td>
-/*
-                <td>${usuario.email}</td>
-                <td>${usuario.username}</td>
-                <td>${usuario.pass}</td>
-*/
-                <td>
-                    <form method="POST" action="/usuarios/${usuario.id}?_method=DELETE">
-                        <button type="SUBMIT" class="btn btn-danger">Remover</button>
-                    </form>
-                    <a href="/usuarios/form/${usuario.id}" class="btn btn-primary">
-                        Alterar
-                    </a>
-                </td>
-            </tr>
-         `;
-         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+                    <td>${usuario.nome}</td>
+    /*
+                    <td>${usuario.email}</td>
+                    <td>${usuario.username}</td>
+                    <td>${usuario.pass}</td>
+    */
+                    <td>
+                        <form method="POST" action="/usuarios/${usuario.id}?_method=DELETE">
+                            <button type="SUBMIT" class="btn btn-danger">Remover</button>
+                        </form>
+                        <a href="/usuarios/form/${usuario.id}" class="btn btn-primary">
+                            Alterar
+                        </a>
+                    </td>
+                </tr>
+            `;
+            document.querySelector('table').insertAdjacentHTML('beforeend', template);
 
-     })
- </script>
+        })
+    </script>
 
- <script>
+    <script>
 
-    (() => {
+        (() => {
 
-        const headers = new Headers();
-        headers.append('Accept','application/json');
+            const headers = new Headers();
+            headers.append('Accept','application/json');
 
-        fetch('/usuarios', {headers})
-        .then(res => res.json())
-        .then(usuarios => console.log(usuarios));
+            fetch('/usuarios', {headers})
+            .then(res => res.json())
+            .then(usuarios => console.log(usuarios));
 
 
-    })();
+        })();
 
- </script>
-
+    </script>
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v02.html %>
 </body>
 </html>

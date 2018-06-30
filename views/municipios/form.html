@@ -5,64 +5,65 @@
     <% include ../partials/head.html %>
     <title>Municípios</title>
 </head>
-
-<body class="container">
-    <!-- Define a action -->
-    <%
-        let action='/municipios';
-        if(municipio.id){
-            action='/municipios/' + municipio.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
+        <!-- Define a action -->
+        <%
+            let action='/municipios';
+            if(municipio.id){
+                action='/municipios/' + municipio.id + '?_method=PUT';
+            }
+        %>
 
-        <div class="text-center">
-            <h1>Municípios</h1>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
+                <h1>Municípios</h1>
+
+                <!-- Validação dos campos -->
+                <% include ../partials/erros-validacao.html %>
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+                    <!-- Campo UF -->
+                    <div class="form-group container">
+                        <%if(municipio.id){%>
+                            <input type="hidden" name="id" value="<%=municipio.id%>">
+                        <%}%>
+                        <label for="inputuf" class="control-label">UF</label>
+                        <div>
+                            <input type="text" id="inputuf" class="form-control" name="uf" placeholder="UF" autofocus value="<%=municipio.uf%>">
+                        </div>
+                    </div>
+        
+                    <!-- Campo Nome -->
+                    <div class="form-group container">
+                        <label for="inputnome" class="control-label">Nome</label>
+                        <div>
+                            <input type="text" id="inputnome" class="form-control" name="nome" placeholder="Nome" autofocus value="<%=municipio.nome%>">
+                        </div>
+                    </div>
+        
+                    <!-- Campo Cód. IBGE -->
+                    <div class="form-group container">
+                        <label for="inputcodIBGE" class="control-label">Cód. IBGE</label>
+                        <div>
+                            <input type="text" id="inputcodIBGE" class="form-control" name="codIBGE" placeholder="Cod. IBGE" autofocus value="<%=municipio.codIBGE%>">
+                        </div>
+                    </div>
+        
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-lg botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
+                    </div>
+                            
+                </form>
+            </div>
         </div>
-
-        <!-- Validação dos campos -->
-        <% include ../partials/erros-validacao.html %>
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
-
-
-            <!-- Campo UF -->
-            <div class="form-group container">
-                <%if(municipio.id){%>
-                    <input type="hidden" name="id" value="<%=municipio.id%>">
-                <%}%>
-                <label for="inputuf" class="control-label">UF</label>
-                <div>
-                    <input type="text" id="inputuf" class="form-control" name="uf" placeholder="UF" autofocus value="<%=municipio.uf%>">
-                </div>
-            </div>
-
-            <!-- Campo Nome -->
-            <div class="form-group container">
-                <label for="inputnome" class="control-label">Nome</label>
-                <div>
-                    <input type="text" id="inputnome" class="form-control" name="nome" placeholder="Nome" autofocus value="<%=municipio.nome%>">
-                </div>
-            </div>
-
-            <!-- Campo Cód. IBGE -->
-            <div class="form-group container">
-                <label for="inputcodIBGE" class="control-label">Cód. IBGE</label>
-                <div>
-                    <input type="text" id="inputcodIBGE" class="form-control" name="codIBGE" placeholder="Cod. IBGE" autofocus value="<%=municipio.codIBGE%>">
-                </div>
-            </div>
-
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
-            </div>
-                    
-        </form>
-    </div>   
+    
+    </div>
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v02.html %>
 </body>
 
 </html>
