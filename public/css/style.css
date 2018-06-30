@@ -172,6 +172,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 .jumboVerde {
   background-color: #128C7E;
   color: white;
+
 }
 
 .jumboMarrom {
@@ -181,6 +182,7 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 
 .jumbos {
   margin-top: 70px;
+  
 }
 
 
