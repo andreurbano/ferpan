@@ -65,104 +65,113 @@
 
 </head>
 
-<body class="container">
-    <!-- Define a action -->
-    <%
-        let action='/produtos';
-        if(produto.id){
-            action='/produtos/' + produto.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabecalho.html %>
-
-    <!-- Conteúdo -->
+<body>
     <div class="container">
+        <!-- Cabeçalho -->
+        <% include ../partials/cabec_v02.html %>
 
-        <h1>Produtos</h1>
+        <!-- Define a action -->
+        <%
+            let action='/produtos';
+            if(produto.id){
+                action='/produtos/' + produto.id + '?_method=PUT';
+            }
+        %>
 
-        <!-- Validação dos campos -->
-        <% include ../partials/erros-validacao.html %>
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
 
+                <h1>Produtos</h1>
 
-            <!-- Campos Id. e  Descrição -->
-            <div class="form-group container">
-                <!-- Campo Id. -->
-                <%if(produto.id){%>
-                    <input type="hidden" name="id" value="<%=produto.id%>">
-                <%}%>
-            <!-- Campo Descrição -->
-            <label for="inputdescricao" class="control-label">Descrição</label>
-                <div>
-                    <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=produto.descricao%>">
-                </div>
-            </div>
-
-            <!-- Lookup Tipo de Produto -->
-            <div class="form-group container">
-                <label class="control-label" for="id_tipoproduto">Tipo</label>
-                <div>
-                    <select class="form-control selectpicker show-tick" id="id_tipoproduto" name="id_tipoproduto" required></select>
-                </div>
-                <script>
-                    PreencheTipo('#id_tipoproduto', '<%=produto.id_tipoproduto%>');
-                    OrdenaElementoSelect('#id_tipoproduto');
-                </script>
-            </div>
-
-            <!-- Lookup Unid. Medida -->
-            <div class="form-group container">
-                    <label class="control-label" for="id_unidademedida">Unidade de Medida</label>
-                    <div>
-                        <select class="form-control selectpicker show-tick" id="id_unidademedida" name="id_unidademedida" required></select>
+                <!-- Validação dos campos -->
+                <% include ../partials/erros-validacao.html %>
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        
+        
+                    <!-- Campos Id. e  Descrição -->
+                    <div class="form-group container">
+                        <!-- Campo Id. -->
+                        <%if(produto.id){%>
+                            <input type="hidden" name="id" value="<%=produto.id%>">
+                        <%}%>
+                    <!-- Campo Descrição -->
+                    <label for="inputdescricao" class="control-label">Descrição</label>
+                        <div>
+                            <input type="text" id="inputdescricao" class="form-control" name="descricao" placeholder="Descrição" autofocus value="<%=produto.descricao%>">
+                        </div>
                     </div>
-                    <script>
-                        PreencheUnidMedida('#id_unidademedida', '<%=produto.id_unidademedida%>');
-                        OrdenaElementoSelect('#id_unidademedida');
-                    </script>
-                </div>
-    
-            <!-- Campo Data do Saldo Inicial -->
-            <div class="form-group container">
-                <label for="inputsaldo_ini_dt" class="control-label">Data do Saldo Inicial</label>
-                <div>
-                    <input class="form-control" id="inputsaldo_ini_dt" type="date" value="<%=produto.saldo_ini_dt%>" name="saldo_ini_dt" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
-                </div>
-            </div>
-    
-            <!-- Campo Quantidade do Saldo Inicial -->
-            <div class="form-group container">
-                <label for="inputsaldo_ini_qtde" class="control-label">Quantidade do Saldo Inicial</label>
-                <div>
-                    <input type="number" step="0.01" id="inputsaldo_ini_qtde" class="form-control" name="saldo_ini_qtde" placeholder="0.00" autofocus value="<%=produto.saldo_ini_qtde%>" required>
-                </div>
-            </div>
-    
-            <!-- Campo Valor do Saldo Inicial -->
-            <div class="form-group container">
-                <label for="inputsaldo_ini_valor" class="control-label">Valor do Saldo Inicial</label>
-                <div>
-                    <input type="number" step="0.01" id="inputsaldo_ini_valor" class="form-control" name="saldo_ini_valor" placeholder="0.00" autofocus value="<%=produto.saldo_ini_valor%>" required>
-                </div>
-            </div>
-    
-            <!-- Campo Valor do Preço Médio Inicial -->
-            <div class="form-group container">
-                <label for="saldo_ini_preco_medio" class="control-label">Valor do Preço Médio Inicial</label>
-                <div>
-                    <input type="number" step="0.01" id="saldo_ini_preco_medio" class="form-control" name="saldo_ini_preco_medio" placeholder="0.00" autofocus value="<%=produto.saldo_ini_preco_medio%>" required>
-                </div>
-            </div>
+        
+                    <!-- Lookup Tipo de Produto -->
+                    <div class="form-group container">
+                        <label class="control-label" for="id_tipoproduto">Tipo</label>
+                        <div>
+                            <select class="form-control selectpicker show-tick" id="id_tipoproduto" name="id_tipoproduto" required></select>
+                        </div>
+                        <script>
+                            PreencheTipo('#id_tipoproduto', '<%=produto.id_tipoproduto%>');
+                            OrdenaElementoSelect('#id_tipoproduto');
+                        </script>
+                    </div>
+        
+                    <!-- Lookup Unid. Medida -->
+                    <div class="form-group container">
+                            <label class="control-label" for="id_unidademedida">Unidade de Medida</label>
+                            <div>
+                                <select class="form-control selectpicker show-tick" id="id_unidademedida" name="id_unidademedida" required></select>
+                            </div>
+                            <script>
+                                PreencheUnidMedida('#id_unidademedida', '<%=produto.id_unidademedida%>');
+                                OrdenaElementoSelect('#id_unidademedida');
+                            </script>
+                        </div>
+            
+                    <!-- Campo Data do Saldo Inicial -->
+                    <div class="form-group container">
+                        <label for="inputsaldo_ini_dt" class="control-label">Data do Saldo Inicial</label>
+                        <div>
+                            <input class="form-control" id="inputsaldo_ini_dt" type="date" value="<%=produto.saldo_ini_dt%>" name="saldo_ini_dt" autofocus data-error="Por favor, informe a Data de Emissão correta." required>
+                        </div>
+                    </div>
+            
+                    <!-- Campo Quantidade do Saldo Inicial -->
+                    <div class="form-group container">
+                        <label for="inputsaldo_ini_qtde" class="control-label">Quantidade do Saldo Inicial</label>
+                        <div>
+                            <input type="number" step="0.01" id="inputsaldo_ini_qtde" class="form-control" name="saldo_ini_qtde" placeholder="0.00" autofocus value="<%=produto.saldo_ini_qtde%>" required>
+                        </div>
+                    </div>
+            
+                    <!-- Campo Valor do Saldo Inicial -->
+                    <div class="form-group container">
+                        <label for="inputsaldo_ini_valor" class="control-label">Valor do Saldo Inicial</label>
+                        <div>
+                            <input type="number" step="0.01" id="inputsaldo_ini_valor" class="form-control" name="saldo_ini_valor" placeholder="0.00" autofocus value="<%=produto.saldo_ini_valor%>" required>
+                        </div>
+                    </div>
+            
+                    <!-- Campo Valor do Preço Médio Inicial -->
+                    <div class="form-group container">
+                        <label for="saldo_ini_preco_medio" class="control-label">Valor do Preço Médio Inicial</label>
+                        <div>
+                            <input type="number" step="0.01" id="saldo_ini_preco_medio" class="form-control" name="saldo_ini_preco_medio" placeholder="0.00" autofocus value="<%=produto.saldo_ini_preco_medio%>" required>
+                        </div>
+                    </div>
+        
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-lg botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
+                    </div>
+                            
+                </form>
 
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-sm botao_flutuante"><span class="glyphicon glyphicon-ok"></span></button>
             </div>
-                    
-        </form>
-    
+        </div>
+
     </div>   
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v02.html %>
+
 </body>
 
 </html>

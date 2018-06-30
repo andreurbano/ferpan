@@ -3,30 +3,31 @@
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
-    <title>Listagem</title>
+    <title>Entrada & saída salvo com sucesso!</title>
 </head>
 
-<body class="container">
-    <!-- Cabeçalho -->
-    <% include ../partials/cabecalho.html %>
+<body>
+    <div class="container">
+        <% include ../partials/cabec_v02.html %>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
 
-    <!-- Conteúdo -->
-    <div>
-            
-        <!-- Título -->
-        <h2 class="container text-center">Entrada & Saída Salvo com Sucesso!</h2>
+                <!-- Título -->
+                <h2 class="container text-center">Entrada & saída salvo com sucesso!</h2>
 
-        <br>
-        <br>
-        <br>
+                <!-- Botões -->
+                <div class="container text-center">
+                    <a href="/entradasesaidas" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Entradas & Saídas</a>
+                    <a href="/entradasesaidas/form" class="btn btn-xs btn-success" autofocus><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+                </div>
 
-        <div class="container text-center">
-            <a href="/entradasesaidas" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Entradas & Saídas</a>
-            <a href="/entradasesaidas/form" class="btn btn-xs btn-success" autofocus><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+            </div>
         </div>
 
     </div>
-    
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v02.html %>
 </body>
 
 </html>

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
-    <title>Salvo com Sucesso!</title>
+    <title>Fornecedores salvo com sucesso!</title>
 </head>
 
-<body class="container">
-    <% include ../partials/cabecalho.html %>
-           
-    <!-- Título -->
-    <h1 class="container text-center">Salvo com Sucesso!</h1>
+<body>
+    <div class="container">
+        <% include ../partials/cabec_v02.html %>
+        <!-- Conteúdo -->
+        <div class="jumbos">
+            <div class="jumbotron jumboVerde">
 
-    <!-- Botões -->
-    <div class="container text-center">
-        <a href="/fornecedores" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Fornecedores</a>
-        <a href="/fornecedores/form" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+                <!-- Título -->
+                <h1 class="container text-center">Fornecedores salvo com sucesso!</h1>
+
+                <!-- Botões -->
+                <div class="container text-center">
+                    <a href="/fornecedores" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-list-alt"></span>     Lista Fornecedores</a>
+                    <a href="/fornecedores/form" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-plus"></span>     Novo</a>
+                </div>
+
+            </div>
+        </div>
+                
     </div>
-
+    <!-- Rodapé -->
+    <% include ../partials/rodape_v02.html %>
 </body>
 </html>

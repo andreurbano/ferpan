@@ -146,22 +146,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   height: auto;
 };
 
-.jumbotron {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
-.jumbotron h1 {
-  text-align: center;
-  font-size: 1.5rem; /*1rem = 16px*/
-  margin-top: -10px;
-}
-
-.jumbotron p {
-  font-size: 1.5rem;
-  margin-bottom: -10px;
-}
-
-.Textojustify{
+.TextoJustify{
   text-align: justify;
 }
 
@@ -172,18 +158,33 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 .jumboVerde {
   background-color: #128C7E;
   color: white;
-
 }
 
 .jumboMarrom {
-  color: white;
   background-color: #58392e;
+  color: white;
 }
 
 .jumbos {
   margin-top: 70px;
   
 }
+
+.jumbotron {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotron h1 {
+  font-size: 1.5rem; /*1rem = 16px*/
+  margin-top: -10px;
+}
+
+.jumbotron p {
+  font-size: 1.5rem;
+  margin-bottom: -10px;
+}
+
+
 
 
 
@@ -305,21 +306,6 @@ th, td {
   border-color: #58392e;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

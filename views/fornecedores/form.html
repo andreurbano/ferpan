@@ -90,138 +90,148 @@
 </head>
 
 <body>
-    <!-- Define a action -->
-    <%
-        let action='/fornecedores';
-        if(fornecedor.id){
-            action='/fornecedores/' + fornecedor.id + '?_method=PUT';
-        }
-    %>
-    <!-- Cabeçalho com Cadastros -->
-    <% include ../partials/cabec_v02.html %>
-
-    <!-- Conteúdo -->
     <div class="container">
+        <!-- Define a action -->
+        <%
+            let action='/fornecedores';
+            if(fornecedor.id){
+                action='/fornecedores/' + fornecedor.id + '?_method=PUT';
+            }
+        %>
+        <!-- Cabeçalho com Cadastros -->
+        <% include ../partials/cabec_v02.html %>
 
-        <h1>Fornecedores</h1>
 
-        <!-- Validação dos campos -->
-        <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
+        <!-- Conteúdo -->
+        <div class="jumbos">
 
-            <!-- Campo Razão Social -->
-            <div class="form-group container">
-                <%if(fornecedor.id){%>
-                    <input type="hidden" name="id" value="<%=fornecedor.id%>">
-                <%}%>
-                <label for="inputrazao_social" class="control-label">Razão Social</label>
-                <div>
-                    <input type="text" id="inputrazao_social" class="form-control" name="razao_social" placeholder="Razão Social" autofocus value="<%=fornecedor.razao_social%>">
-                </div>
-            </div>
+            <div class="jumbotron jumboVerde">
 
-            <!-- Campo CNPJ -->
-            <div class="form-group container">
-                <label for="inputcnpj" class="control-label">CNPJ</label>
-                <div>
-                    <input type="text" id="inputcnpj" class="form-control" name="cnpj" placeholder="CNPJ" autofocus value="<%=fornecedor.cnpj%>">
-                </div>
-            </div>
 
-            <!-- Campo E-mail -->
-            <div class="form-group container">
-                <label for="inputemail" class="control-label">E-mail</label>
-                <div>
-                    <input type="text" id="inputemail" class="form-control" name="email" placeholder="E-mail" autofocus value="<%=fornecedor.email%>">
-                </div>
-            </div>
+                <h1>Fornecedores</h1>
 
-            <!--Campo Lookup Ramo de Atividade -->
-            <div class="form-group container">
-                <label class="control-label" for="id_ramoatividade">Ramo de Atividade</label>
-                <div >
-                    <select class="form-control selectpicker show-tick" id="id_ramoatividade" name="id_ramoatividade"></select>
-                </div>
-                <script>
-                    PreencheRamodeAtividade('#id_ramoatividade', '<%=fornecedor.id_ramoatividade%>');
-                </script>
-            </div>
-    
-            <!-- Campo Lookup Tipo Fornecedor -->
-            <div class="form-group container">
-                <label class="control-label" for="id_tipofornecedor">Tipo</label>
-                <div>
-                    <select class="form-control selectpicker show-tick" id="id_tipofornecedor" name="id_tipofornecedor"></select>
-                </div>
-                <script>
-                    PreencheTipoFornecedor('#id_tipofornecedor', '<%=fornecedor.id_tipofornecedor%>');
-                </script>
-            </div>
-    
-            <!-- Campo End. Logradouro -->
-            <div class="form-group container">
-                <label for="inputend_logradouro" class="control-label">Logradouro</label>
-                <div>
-                    <input type="text" id="inputend_logradouro" class="form-control" name="end_logradouro" placeholder="End. Logradouro" autofocus value="<%=fornecedor.end_logradouro%>">
-                </div>
-            </div>
-    
-            <!-- Campo End. Nº -->
-            <div class="form-group container">
-                <label for="inputend_numero" class="control-label">Nº</label>
-                <div>
-                    <input type="text" id="inputend_numero" class="form-control" name="end_numero" placeholder="End. Nº" autofocus value="<%=fornecedor.end_numero%>">
-                </div>
-            </div>
-    
-            <!-- Campo End. Complemento -->
-            <div class="form-group container">
-                <label for="inputend_complemento" class="control-label">Complemento</label>
-                <div>
-                    <input type="text" id="inputend_complemento" class="form-control" name="end_complemento" placeholder="End. Complemento" autofocus value="<%=fornecedor.end_complemento%>">
-                </div>
-            </div>
-                
-            <!-- Campo End. CEP -->
-            <div class="form-group container">
-                <label for="inputend_cep" class="control-label">CEP</label>
-                <div>
-                    <input type="text" id="inputend_cep" class="form-control" name="end_cep" placeholder="End. CEP" autofocus value="<%=fornecedor.end_cep%>">
-                </div>
-            </div>
-                
-            <!--Campo Lookup UF -->
-            <div class="form-group container">
-                <label class="control-label" for="inputUF">UF</label>
-                <div >
-                    <select class="form-control selectpicker show-tick" id="inputUF" name="end_uf"></select>
-                </div>
-                <script>
-                    PreencheUF('#inputUF', '<%=fornecedor.end_uf%>');
-                </script>
-            </div>
-
-            <!-- Campo Municipio Lookup -->
-            <div class="form-group container">
-                <label class="control-label" for="inputMunicipio">Município</label>
-                <div>
-                    <select class="form-control selectpicker show-tick" id="inputMunicipio" name="end_municipio"></select>
-                </div>
-
-                <script>
-                    PreencheMunicipio('#inputMunicipio', '<%=fornecedor.end_municipio%>');
-                </script>
-            </div>
+                <!-- Validação dos campos -->
+                <form action="<%=action%>" method="POST" class="form-horizontal" role="form">
         
-            <!-- Botão Gravar(Submit) -->
-            <div class="form-group container">
-                <button type="SUBMIT" class="btn btn-success btn-xs botao_flutuante"><span class="glyphicon glyphicon glyphicon-ok"></span></button>
-            </div>
+                    <!-- Campo Razão Social -->
+                    <div class="form-group container">
+                        <%if(fornecedor.id){%>
+                            <input type="hidden" name="id" value="<%=fornecedor.id%>">
+                        <%}%>
+                        <label for="inputrazao_social" class="control-label">Razão Social</label>
+                        <div>
+                            <input type="text" id="inputrazao_social" class="form-control" name="razao_social" placeholder="Razão Social" autofocus value="<%=fornecedor.razao_social%>">
+                        </div>
+                    </div>
+        
+                    <!-- Campo CNPJ -->
+                    <div class="form-group container">
+                        <label for="inputcnpj" class="control-label">CNPJ</label>
+                        <div>
+                            <input type="text" id="inputcnpj" class="form-control" name="cnpj" placeholder="CNPJ" autofocus value="<%=fornecedor.cnpj%>">
+                        </div>
+                    </div>
+        
+                    <!-- Campo E-mail -->
+                    <div class="form-group container">
+                        <label for="inputemail" class="control-label">E-mail</label>
+                        <div>
+                            <input type="text" id="inputemail" class="form-control" name="email" placeholder="E-mail" autofocus value="<%=fornecedor.email%>">
+                        </div>
+                    </div>
+        
+                    <!--Campo Lookup Ramo de Atividade -->
+                    <div class="form-group container">
+                        <label class="control-label" for="id_ramoatividade">Ramo de Atividade</label>
+                        <div >
+                            <select class="form-control selectpicker show-tick" id="id_ramoatividade" name="id_ramoatividade"></select>
+                        </div>
+                        <script>
+                            PreencheRamodeAtividade('#id_ramoatividade', '<%=fornecedor.id_ramoatividade%>');
+                        </script>
+                    </div>
+            
+                    <!-- Campo Lookup Tipo Fornecedor -->
+                    <div class="form-group container">
+                        <label class="control-label" for="id_tipofornecedor">Tipo</label>
+                        <div>
+                            <select class="form-control selectpicker show-tick" id="id_tipofornecedor" name="id_tipofornecedor"></select>
+                        </div>
+                        <script>
+                            PreencheTipoFornecedor('#id_tipofornecedor', '<%=fornecedor.id_tipofornecedor%>');
+                        </script>
+                    </div>
+            
+                    <!-- Campo End. Logradouro -->
+                    <div class="form-group container">
+                        <label for="inputend_logradouro" class="control-label">Logradouro</label>
+                        <div>
+                            <input type="text" id="inputend_logradouro" class="form-control" name="end_logradouro" placeholder="End. Logradouro" autofocus value="<%=fornecedor.end_logradouro%>">
+                        </div>
+                    </div>
+            
+                    <!-- Campo End. Nº -->
+                    <div class="form-group container">
+                        <label for="inputend_numero" class="control-label">Nº</label>
+                        <div>
+                            <input type="text" id="inputend_numero" class="form-control" name="end_numero" placeholder="End. Nº" autofocus value="<%=fornecedor.end_numero%>">
+                        </div>
+                    </div>
+            
+                    <!-- Campo End. Complemento -->
+                    <div class="form-group container">
+                        <label for="inputend_complemento" class="control-label">Complemento</label>
+                        <div>
+                            <input type="text" id="inputend_complemento" class="form-control" name="end_complemento" placeholder="End. Complemento" autofocus value="<%=fornecedor.end_complemento%>">
+                        </div>
+                    </div>
+                        
+                    <!-- Campo End. CEP -->
+                    <div class="form-group container">
+                        <label for="inputend_cep" class="control-label">CEP</label>
+                        <div>
+                            <input type="text" id="inputend_cep" class="form-control" name="end_cep" placeholder="End. CEP" autofocus value="<%=fornecedor.end_cep%>">
+                        </div>
+                    </div>
+                        
+                    <!--Campo Lookup UF -->
+                    <div class="form-group container">
+                        <label class="control-label" for="inputUF">UF</label>
+                        <div >
+                            <select class="form-control selectpicker show-tick" id="inputUF" name="end_uf"></select>
+                        </div>
+                        <script>
+                            PreencheUF('#inputUF', '<%=fornecedor.end_uf%>');
+                        </script>
+                    </div>
+        
+                    <!-- Campo Municipio Lookup -->
+                    <div class="form-group container">
+                        <label class="control-label" for="inputMunicipio">Município</label>
+                        <div>
+                            <select class="form-control selectpicker show-tick" id="inputMunicipio" name="end_municipio"></select>
+                        </div>
+        
+                        <script>
+                            PreencheMunicipio('#inputMunicipio', '<%=fornecedor.end_municipio%>');
+                        </script>
+                    </div>
+                
+                    <!-- Botão Gravar(Submit) -->
+                    <div class="form-group container">
+                        <button type="SUBMIT" class="btn btn-success btn-lg botao_flutuante"><span class="glyphicon glyphicon glyphicon-ok"></span></button>
+                    </div>
+        
+                </form>
 
-        </form>
+                
+            </div>
+            
+        </div>
     
     </div>
     <!-- Rodapé -->
-    <% include ../partials/rodape_v01.html %>
+    <% include ../partials/rodape_v02.html %>
 
 </body>
 
