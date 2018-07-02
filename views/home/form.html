@@ -3,21 +3,19 @@
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
-
     <title>Ferpan RJ - Controle de Estoque</title>
 </head>
-
 <body>
     <div class="container">
-
         <!-- Cabeçalho -->
         <% include ../partials/cabec_v02.html %>
 
         <!-- Conteúdo -->
-        <div class="jumbos">
+        <div class="conteudo  text-center">
             <!-- Main component for a primary marketing message or call to action -->
-            <div class="jumbotron jumboVerde TextoCenter">
+            <div class="jumbotron box-verde">
                 <h1>Estoque Sucatas</h1>
+                <br>
                 <p>
                 <a class="btn btn-lg btn-success" href="/entradasesaidas/" role="button">Entradas & Saídas »</a>
                 <a class="btn btn-lg btn-success" href="/home/saldo" role="button">Saldos »</a>
@@ -25,10 +23,8 @@
             </div>
         </div>
 
+        <!-- Rodapé -->
+        <% include ../partials/rodape_v02.html %>
     </div>
-
-    <!-- Rodapé -->
-    <% include ../partials/rodape_v02.html %>
-   
 </body>
 </html>

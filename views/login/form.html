@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Head -->
-    <% include ../partials/head.html %>
-    <title>Estoque Ferpan - Login</title>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Cabeçalho -->
-      <% include ../partials/cabec_v01.html %>
-  
-      <!-- Conteúdo -->
-      <div class="jumbos">
+<head>
+  <!-- Head -->
+  <% include ../partials/head.html %>
+  <title>Estoque Ferpan - Login</title>
+</head>
+<body>
+  <div class="container">
+    <!-- Cabeçalho -->
+    <% include ../partials/cabec_v01.html %>
 
-        <div class="jumbotron jumboVerde">
-          <h1>Login</h1>
+    <!-- Conteúdo -->
+    <div class="conteudo">
 
-          <form class="form-horizontal" role="form" action="/home/" method="post"> 
-            <!--Cx. de Texto Email -->
-            <div class="form-group">
-              <label for="inputEmail" class="control-label">Email</label>
-              <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required autofocus>
-            </div>
-            <!--Cx. de Texto Senha -->
-            <div class="form-group">
-              <label for="inputPassword" class="control-label">Senha</label>
-              <input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Senha" required autofocus>
-            </div>
-            <!-- Botão Entrar -->
-            <div class="form-group">
-              <input type="submit" class="btn btn-success btn-lg" value="Entrar »">
-            </div>
-          </form>
-        
-        </div>
+      <div class="jumbotron box-verde">
 
+        <form class="container form-horizontal" role="form" action="/home/" method="post"> 
+          <h1 class="form-group">Login</h1>
+
+          <!--Cx. de Texto Email -->
+          <div class="form-group">
+
+            <label for="inputEmail" class="control-label">Email</label>
+            <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required autofocus>
+          </div>
+          <!--Cx. de Texto Senha -->
+          <div class="form-group">
+            <label for="inputPassword" class="control-label">Senha</label>
+            <input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Senha" required autofocus>
+          </div>
+          <!-- Botão Entrar -->
+          <div class="form-group">
+            <input type="submit" class="btn btn-success btn-lg" value="Entrar »">
+          </div>
+        </form>
+      
       </div>
 
     </div>
-
     <!-- Rodapé -->
     <% include ../partials/rodape_v01.html %>
-
-  </body>
+  </div>
+</body>
 </html>

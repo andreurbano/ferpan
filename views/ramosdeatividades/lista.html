@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
     <title>Ramos de Atividades</title>
 </head>
-
 <body>
     <div class="container">
         <!-- Cabeçalho -->
         <% include ../partials/cabec_v02.html %>
 
         <!-- Conteúdo -->
-        <div class="jumbos">
-            <div class="jumbotron jumboVerde">
+        <div class="conteudo">
+            <div class="jumbotron box-verde">
 
                 <h1>Ramos de Atividades</h1>
 
                 <a href="/ramosdeatividades/form" class="btn btn-lg btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
         
-                <div class="table-responsive tabela">
-                    <table class='table table-sm hover table-hover table-bordered table-striped'>    
-                        <thead class="thead-dark">
+                <div class="table-responsive">
+                    <table class='table table-sm hover table-hover table-striped'>    
+                        <thead>
                             <tr>
                                 <th scope="col">Descrição</th>
                                 <th scope="col" class="text-center">Ação</th>
@@ -52,53 +50,53 @@
             
             </div>
         </div>
-    
+
+        <!-- Rodapé -->
+        <% include ../partials/rodape_v02.html %>
     </div>
 
 
- <script src="/socket.io/socket.io.js"></script>  
- 
- <script>
-     const socket = io();
-     socket.on('novoRamoDeAtividade', ramodeatividade => {
+    <script src="/socket.io/socket.io.js"></script>  
+    
+    <script>
+        const socket = io();
+        socket.on('novoRamoDeAtividade', ramodeatividade => {
 
-         const template = `
-            <tr>
+            const template = `
+                <tr>
 
-                <td>${ramodeatividade.descricao}</td>
+                    <td>${ramodeatividade.descricao}</td>
 
-                <td>
-                    <form method="POST" action="/ramosdeatividades/${ramodeatividade.id}?_method=DELETE">
-                        <button type="SUBMIT" class="btn btn-danger">Remover</button>
-                    </form>
-                    <a href="/ramosdeatividades/form/${ramodeatividade.id}" class="btn btn-primary">
-                        Alterar
-                    </a>
-                </td>
-            </tr>
-         `;
-         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+                    <td>
+                        <form method="POST" action="/ramosdeatividades/${ramodeatividade.id}?_method=DELETE">
+                            <button type="SUBMIT" class="btn btn-danger">Remover</button>
+                        </form>
+                        <a href="/ramosdeatividades/form/${ramodeatividade.id}" class="btn btn-primary">
+                            Alterar
+                        </a>
+                    </td>
+                </tr>
+            `;
+            document.querySelector('table').insertAdjacentHTML('beforeend', template);
 
-     })
- </script>
+        })
+    </script>
 
- <script>
+    <script>
 
-    (() => {
+        (() => {
 
-        const headers = new Headers();
-        headers.append('Accept','application/json');
+            const headers = new Headers();
+            headers.append('Accept','application/json');
 
-        fetch('/ramosdeatividades', {headers})
-        .then(res => res.json())
-        .then(ramosdeatividades => console.log(ramosdeatividades));
+            fetch('/ramosdeatividades', {headers})
+            .then(res => res.json())
+            .then(ramosdeatividades => console.log(ramosdeatividades));
 
 
-    })();
+        })();
 
- </script>
-    <!-- Rodapé -->
-    <% include ../partials/rodape_v02.html %>
+    </script>
 
 </body>
 </html>

@@ -3,9 +3,7 @@
 <head>
     <!-- Include como se usa no PHP. Serve para incluir titulos, rodapes e partes de código -->
     <% include ../partials/head.html %>
-
     <title>Entradas & Saídas</title>
-
     <script>
         // Preenche o lookup com Produtos
         function PreencheProduto(idComponente, valorAtual) {
@@ -49,136 +47,144 @@
         <% include ../partials/cabec_v02.html %>
 
         <!-- Conteúdo -->
-        <div class="jumbos">
+        <div class="conteudo">
 
-            <div class="jumbotron jumboVerde">
+            <div class="jumbotron box-verde">
 
                 <h1>Entradas & Saídas</h1>
 
-                <div class="row">
-            
-                    <!-- Lookup Produtos -->
-                    <div class="col-xs-6 form-group">
-                        <label class="control-label" for="idProduto">Produto</label>
-                        <div>
-                            <select class="form-control selectpicker show-tick" id="idProduto" name="idProduto" required onchange="buscaEntradaSaida(this.value, dataMes.value)"></select>
+                <form>
+                    <div class="row">
+                
+                        <!-- Lookup Produtos -->
+                        <div class="col-xs-6 form-group">
+                            <label class="control-label" for="idProduto">Produto</label>
+                            <div>
+                                <select class="form-control selectpicker show-tick" id="idProduto" name="idProduto" required onchange="buscaEntradaSaida(this.value, dataMes.value)"></select>
+                            </div>
+                            <script>
+                                //PreencheProduto('#prod', prod.value);
+                                PreencheProduto('#idProduto', 1);
+                                OrdenaElementoSelect('#idProduto');
+                            </script>
                         </div>
-                        <script>
-                            //PreencheProduto('#prod', prod.value);
-                            PreencheProduto('#idProduto', 1);
-                            OrdenaElementoSelect('#idProduto');
-                        </script>
-                    </div>
-            
-                    <!-- Campo Data Mês -->
-                    <div class="col-xs-6 form-group">
-                        <label for="dataMes" class="control-label">Mês</label>
-                        <div>
-                            <input type="month" id="dataMes" class="form-control" name="dataMes" value="<%= new Date(Date.now()).toISOString().substring(0, 7)%>" onchange="buscaEntradaSaida(idProduto.value, this.value)">
+                
+                        <!-- Campo Data Mês -->
+                        <div class="col-xs-6 form-group">
+                            <label for="dataMes" class="control-label">Mês</label>
+                            <div>
+                                <input type="month" id="dataMes" class="form-control" name="dataMes" value="<%= new Date(Date.now()).toISOString().substring(0, 7)%>" onchange="buscaEntradaSaida(idProduto.value, this.value)">
+                            </div>
                         </div>
+                
                     </div>
-            
+
+                </form>
+
+                <br>
+
+                <div class="container">
+                    <div class="row borda container">
+                        <!-- Tabela -->
+                        <br>
+                        <div id="txtHint"></div>
+                    </div>
                 </div>
-            
-                <!-- Tabela -->
-                <div id="txtHint"></div>
+
             
                 <!-- Botão incluir -->
                 <a href="/entradasesaidas/form" class="btn btn-lg btn-success botao_flutuante"><span class="glyphicon glyphicon-plus"></span></a>
-                
-
 
             </div>
 
         </div>
 
-    </div>
+        <!-- Rodapé -->
+        <% include ../partials/rodape_v02.html %>
+  </div>
 
- <script src="/socket.io/socket.io.js"></script>  
- 
- <script>
-     const socket = io();
-     socket.on('novoEntradaSaida', entradasaida => {
+    <script src="/socket.io/socket.io.js"></script>  
+    
+    <script>
+        const socket = io();
+        socket.on('novoEntradaSaida', entradasaida => {
 
-         const template = `
-            <tr>
+            const template = `
+                <tr>
 
-                <td class="text-center">${entradasaida.dt_emissao}</td>
-                <td class="text-center">${entradasaida.nf_serie}</td>
-                <td class="text-center">${entradasaida.nf_num}</td>
-                <td>${entradasaida.fornecedor}</td>
-                <td>${entradasaida.produto}</td>
-                <td class="text-right">${entradasaida.qtde}</td>
-                <td class="text-right">${entradasaida.valor}</td>
-                <td class="text-center">${entradasaida.tipoentsai}</td>
-                <td class="text-right">${entradasaida.saldo_qtde}</td>
-                <td class="text-right">${entradasaida.saldo_valor}</td>
-                <td class="text-right">${entradasaida.preco_medio}</td>
+                    <td class="text-center">${entradasaida.dt_emissao}</td>
+                    <td class="text-center">${entradasaida.nf_serie}</td>
+                    <td class="text-center">${entradasaida.nf_num}</td>
+                    <td>${entradasaida.fornecedor}</td>
+                    <td>${entradasaida.produto}</td>
+                    <td class="text-right">${entradasaida.qtde}</td>
+                    <td class="text-right">${entradasaida.valor}</td>
+                    <td class="text-center">${entradasaida.tipoentsai}</td>
+                    <td class="text-right">${entradasaida.saldo_qtde}</td>
+                    <td class="text-right">${entradasaida.saldo_valor}</td>
+                    <td class="text-right">${entradasaida.preco_medio}</td>
 
-                <td class="text-center">
+                    <td class="text-center">
 
-                    <form method="POST" action="/entradasesaidas/${entradasaida.id}?_method=DELETE">
-                        <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
-                        <a href="/entradasesaidas/form/${entradasaida.id}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
-                    </form>
+                        <form method="POST" action="/entradasesaidas/${entradasaida.id}?_method=DELETE">
+                            <button type="SUBMIT" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></button>
+                            <a href="/entradasesaidas/form/${entradasaida.id}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a>
+                        </form>
 
-                </td>
+                    </td>
 
-            </tr>
-         `;
-         document.querySelector('table').insertAdjacentHTML('beforeend', template);
+                </tr>
+            `;
+            document.querySelector('table').insertAdjacentHTML('beforeend', template);
 
-     })
- </script>
+        })
+    </script>
 
- <script>
+    <script>
 
-    (() => {
+        (() => {
 
-        const headers = new Headers();
-        headers.append('Accept','application/json');
+            const headers = new Headers();
+            headers.append('Accept','application/json');
 
-        fetch('/entradasesaidas', {headers})
-        .then(res => res.json())
-        .then(entradasesaidas => console.log(entradasesaidas));
-
-
-    })();
- </script>
+            fetch('/entradasesaidas', {headers})
+            .then(res => res.json())
+            .then(entradasesaidas => console.log(entradasesaidas));
 
 
-<script>
+        })();
+    </script>
 
-    function buscaEntradaSaida(idProduto, dataMes) {
 
-    var xhttp;    
-    if (idProduto == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    }
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
+    <script>
+
+        function buscaEntradaSaida(idProduto, dataMes) {
+
+        var xhttp;    
+        if (idProduto == "") {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
         }
-    };
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
 
-    //alert('Passo 1: Cód Produto = ' + idProduto);
-    //alert('Passo 1: Dt. Mês = ' + dataMes);
+        //alert('Passo 1: Cód Produto = ' + idProduto);
+        //alert('Passo 1: Dt. Mês = ' + dataMes);
 
-    xhttp.open("GET", "/entradasesaidas/lista/" + idProduto + ',' + dataMes , true);
+        xhttp.open("GET", "/entradasesaidas/lista/" + idProduto + ',' + dataMes , true);
 
-    xhttp.send();
-    }
+        xhttp.send();
+        }
 
-</script>
+    </script>
 
-<script>
-    buscaEntradaSaida(1, dataMes.value);
-</script>
-
-    <!-- Rodapé -->
-    <% include ../partials/rodape_v02.html %>
+    <script>
+        buscaEntradaSaida(1, dataMes.value);
+    </script>
 
 </body>
 </html>

@@ -6,54 +6,48 @@
     <% include ../partials/head.html %>
 </head>
 <body>
-    <div class="container ">
-
+    <div class="container">
         <!-- Cabeçalho -->
         <% include ../partials/cabec_v02.html %>
-
         <!-- Conteúdo -->
-        <div class="jumbos">
+        <div class="conteudo">
 
-            <div class="jumbotron jumboVerde">
-
+            <div class="jumbotron box-verde">
                 <h1>Saldos</h1>
-    
-                <div class="table-responsive tabela">
-                    <table class='table table-sm hover table-hover table-bordered table-striped'>    
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Material</th>
-                                <th scope="col" class="text-center">Data</th>
-                                <th scope="col" class="text-right">Qtde.</th>
-                                <th scope="col">Unid. Med.</th>
-                                <th scope="col" class="text-right">Valor</th>
-                            </tr>
-                        </thead>
-        
-                        <tbody>
-        
-                            <% for(produto of produtos) { %>
+
+                <div class="table-responsive">
+                        <table  class='table table-sm hover table-hover table-striped'>
+                            <thead>
                                 <tr>
-                                    <td><%= produto.descricao %></td>
-                                    <td class="text-center"><%= produto.saldo_atu_dt %></td>
-                                    <td class="text-right"><%= produto.saldo_atu_qtde %></td>
-                                    <td><%= produto.Sigla %></td>
-                                    <td class="text-right"><%= produto.saldo_atu_valor %></td> 
+                                    <th scope="col">Material</th>
+                                    <th scope="col" class="text-center">Data</th>
+                                    <th scope="col" class="text-right">Qtde.</th>
+                                    <th scope="col">Unid. Med.</th>
+                                    <th scope="col" class="text-right">Valor</th>
                                 </tr>
-                            <%}%>
-        
-                        </tbody>
-                    </table>
-        
-                </div>
+                            </thead>
+            
+                            <tbody>
+            
+                                <% for(produto of produtos) { %>
+                                    <tr>
+                                        <td><%= produto.descricao %></td>
+                                        <td class="text-center"><%= produto.saldo_atu_dt %></td>
+                                        <td class="text-right"><%= produto.saldo_atu_qtde %></td>
+                                        <td><%= produto.Sigla %></td>
+                                        <td class="text-right"><%= produto.saldo_atu_valor %></td> 
+                                    </tr>
+                                <%}%>
+            
+                            </tbody>
+                        </table>
+            
+                    </div>
+
                 
             </div>
-            
-
-
 
         </div>
- 
 
     </div>
 

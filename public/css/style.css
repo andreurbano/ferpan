@@ -1,15 +1,19 @@
+.conteudo{
+  margin-top: 90px;
+}
+
+.borda{
+/*  border: 1px solid #58392e;*/
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
 .footer{
   text-align: center;
   font-size:0.9rem;
   margin-bottom: -10px;
   color: white;
   background-color:#000;
-  
-/*
-  background-color:#000;
-  background-color: #44BB6E;
-  color: #58392e;
-*/
   /* Transparência */
   filter:opacity(alpha=60);
   -moz-opacity:0.3;
@@ -17,8 +21,15 @@
 }
 
 .navbar {
+  background-color:white;
+  border: none;
+
+  /*
   margin: 0 auto;
+  */
+  /*
   border-bottom: 1px solid #58392e;
+  */
   /* Transparência */
   filter:opacity(alpha=60);
   -moz-opacity:0.9;
@@ -83,6 +94,7 @@
   background-color: #44BB6E;
   
 }
+
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
@@ -94,6 +106,7 @@
   background-color: #44BB6E;
   
 }
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
@@ -132,11 +145,6 @@
   color: white;
 }
 
-
-/* 
-Extra small devices (portrait phones, less than 544px) 
-No media query since this is the default in Bootstrap because it is "mobile first"
-*/
 .logotipo {
   position: relative;
   top: -10px;
@@ -144,67 +152,39 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   max-height:74px;
   width: auto;
   height: auto;
-};
-
-
-.TextoJustify{
-  text-align: justify;
-}
-
-.TextoCenter{
-  text-align: center;
-}
-
-.jumboVerde {
-  background-color: #128C7E;
-  color: white;
-}
-
-.jumboMarrom {
-  background-color: #58392e;
-  color: white;
-}
-
-.jumbos {
-  margin-top: 70px;
-  
-}
-
-.jumbotron {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .jumbotron h1 {
-  font-size: 1.5rem; /*1rem = 16px*/
-  margin-top: -10px;
+  margin-top: -30px;
+  font-size: 2.5rem;  
 }
 
 .jumbotron p {
-  font-size: 1.5rem;
-  margin-bottom: -10px;
+  margin-top: -20px;
+  margin-bottom: -30px;
 }
 
+.box-verde{
+  background-color: #128C7E;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-
-
+.box-marrom{
+  background-color: #58392e;
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .btn-success{
   background-color: #128c7e;
   border-color: #58392e;
-
-  /* Transparência do botão */
-  /*
-  filter:alpha(opacity=70);
-  opacity: 0.7;
-  -moz-opacity:0.7;
-  -webkit-opacity:0.7;
-  */
 }
+
 .btn-success:hover {
   background-color: #58392e;
   border-color: #128c7e;
 }
-
 
 .botao_flutuante {
   position: fixed;
@@ -214,32 +194,12 @@ No media query since this is the default in Bootstrap because it is "mobile firs
   border: none;
   color: white;
   background-color: #44BB6E;
-
-/*
-  border-color: #58392e;
-  padding: 1em;
-*/
-
-  /*Arredonda botão*/
-  /*border-radius: 45px;*/
-
-  /* Transparência do botão */
-  /*
-  filter:alpha(opacity=70);
-  opacity: 0.7;
-  -moz-opacity:0.7;
-  -webkit-opacity:0.7;
-  */
-
   /* Sombra do botão */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .botao_flutuante:hover {
   background-color: #58392e;
-  /*
-  border-color: #128c7e;
-  */
   color: white;
 }
 
@@ -253,19 +213,20 @@ table {
   width: 50em;
   border: 1px solid #666;
   color: #58392e;
-
 }
+
 thead {
-  background: #58392e url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
+  background: #ccc url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
   border-top: 1px solid #a5a5a5;
   border-bottom: 1px solid #a5a5a5;
 }
+
 tr:hover {
   /*
   background-color:#3d80df;
   color: #fff;
   */
-  background-color: #58392e;
+  /*background-color: #58392e;*/
   color: #128c7e;
   /*
     font-size: 105%;
@@ -307,89 +268,44 @@ th, td {
 }
 */
 
-
-
-
-/*
-####################################################
-M E D I A  Q U E R I E S
-####################################################
-*/
- 
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Bootstrap 4 breakpoints
-*/
-/* Small devices (landscape phones, 544px and up) */
-@media screen and (min-width: 544px) {  
-  .jumbos h1 {font-size:1.5rem;} /*1rem = 16px*/
-  .jumbos p {font-size:1.5rem;}
-}
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media screen and (min-width: 768px) {  
-  .jumbos h1 {font-size:2rem;} /*1rem = 16px*/
-  .jumbos p {font-size:2rem;}
-
-
-  .jumbos {
-    margin-top: 80px;
-  }
+@media screen and (min-width: 768px) { 
   
-
   .logotipo {
     top: -14px;
     max-width:223px;
     max-height:103px;
-  };
-
-  .navbar {
-    height: 80px;   
   }
 
+
+  .navbar {
+    /*
+    height: 300px;   
+    */
+    color: white;  
+  }
+  
   .navbar-nav {
     margin-top: 10px;
     float: right;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-
+  
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #f9f9f9;
   }
-
+  
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
   }
-
+  
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
     background-color: #128c7e;
   }
-
-}
  
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-  .jumbos h1 {font-size:2.5rem;} /*1rem = 16px*/
-  .jumbos p {font-size:2.5rem;} 
-}
- 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  
-  .jumbos h1 {font-size:3rem;} /*1rem = 16px*/    
-  .jumbos p {font-size:3rem;} 
-}
- 
-/*
-::::::::::::::::::::::::::::::::::::::::::::::::::::
-Custom media queries
-*/
- 
-/* Set width to make card deck cards 100% width */
-@media (min-width: 950px) and (max-width:1100px) { 
-  .jumbos h1 {font-size:2.75rem;color:red;} 
-  .jumbos p {font-size:2.75rem;color:red;} 
 }
